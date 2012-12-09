@@ -17,6 +17,14 @@
 		A741D8711675388600CCA065 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A741D8701675388600CCA065 /* Default@2x.png */; };
 		A741D8731675388600CCA065 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A741D8721675388600CCA065 /* Default-568h@2x.png */; };
 		A741D8761675388600CCA065 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A741D8741675388600CCA065 /* MainStoryboard.storyboard */; };
+		A741D8811675434400CCA065 /* ClientesCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A741D8801675434400CCA065 /* ClientesCollectionViewController.m */; };
+		A741D8841675439300CCA065 /* ClientesCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A741D8831675439300CCA065 /* ClientesCollectionViewCell.m */; };
+		A741D8871675455400CCA065 /* icono.png in Resources */ = {isa = PBXBuildFile; fileRef = A741D8861675455400CCA065 /* icono.png */; };
+		A741D88A167547AF00CCA065 /* TabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A741D889167547AF00CCA065 /* TabBarViewController.m */; };
+		A741D88D1675485100CCA065 /* tabbar.png in Resources */ = {isa = PBXBuildFile; fileRef = A741D88B1675485100CCA065 /* tabbar.png */; };
+		A741D88E1675485100CCA065 /* tabbar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A741D88C1675485100CCA065 /* tabbar@2x.png */; };
+		A741D891167549A400CCA065 /* NavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A741D890167549A400CCA065 /* NavigationViewController.m */; };
+		A741D89316754B2500CCA065 /* backgroundHome.png in Resources */ = {isa = PBXBuildFile; fileRef = A741D89216754B2500CCA065 /* backgroundHome.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +42,18 @@
 		A741D8701675388600CCA065 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		A741D8721675388600CCA065 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		A741D8751675388600CCA065 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
+		A741D87F1675434400CCA065 /* ClientesCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClientesCollectionViewController.h; sourceTree = "<group>"; };
+		A741D8801675434400CCA065 /* ClientesCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClientesCollectionViewController.m; sourceTree = "<group>"; };
+		A741D8821675439300CCA065 /* ClientesCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClientesCollectionViewCell.h; sourceTree = "<group>"; };
+		A741D8831675439300CCA065 /* ClientesCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClientesCollectionViewCell.m; sourceTree = "<group>"; };
+		A741D8861675455400CCA065 /* icono.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icono.png; sourceTree = "<group>"; };
+		A741D888167547AF00CCA065 /* TabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarViewController.h; sourceTree = "<group>"; };
+		A741D889167547AF00CCA065 /* TabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarViewController.m; sourceTree = "<group>"; };
+		A741D88B1675485100CCA065 /* tabbar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabbar.png; sourceTree = "<group>"; };
+		A741D88C1675485100CCA065 /* tabbar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar@2x.png"; sourceTree = "<group>"; };
+		A741D88F167549A400CCA065 /* NavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigationViewController.h; sourceTree = "<group>"; };
+		A741D890167549A400CCA065 /* NavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigationViewController.m; sourceTree = "<group>"; };
+		A741D89216754B2500CCA065 /* backgroundHome.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backgroundHome.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,10 +100,19 @@
 		A741D8621675388600CCA065 /* Pickcel */ = {
 			isa = PBXGroup;
 			children = (
+				A741D885167544A600CCA065 /* Artwork */,
 				A741D86B1675388600CCA065 /* AppDelegate.h */,
 				A741D86C1675388600CCA065 /* AppDelegate.m */,
 				A741D8741675388600CCA065 /* MainStoryboard.storyboard */,
 				A741D8631675388600CCA065 /* Supporting Files */,
+				A741D87F1675434400CCA065 /* ClientesCollectionViewController.h */,
+				A741D8801675434400CCA065 /* ClientesCollectionViewController.m */,
+				A741D8821675439300CCA065 /* ClientesCollectionViewCell.h */,
+				A741D8831675439300CCA065 /* ClientesCollectionViewCell.m */,
+				A741D888167547AF00CCA065 /* TabBarViewController.h */,
+				A741D889167547AF00CCA065 /* TabBarViewController.m */,
+				A741D88F167549A400CCA065 /* NavigationViewController.h */,
+				A741D890167549A400CCA065 /* NavigationViewController.m */,
 			);
 			path = Pickcel;
 			sourceTree = "<group>";
@@ -100,6 +129,17 @@
 				A741D8721675388600CCA065 /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A741D885167544A600CCA065 /* Artwork */ = {
+			isa = PBXGroup;
+			children = (
+				A741D89216754B2500CCA065 /* backgroundHome.png */,
+				A741D88B1675485100CCA065 /* tabbar.png */,
+				A741D88C1675485100CCA065 /* tabbar@2x.png */,
+				A741D8861675455400CCA065 /* icono.png */,
+			);
+			path = Artwork;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -158,6 +198,10 @@
 				A741D8711675388600CCA065 /* Default@2x.png in Resources */,
 				A741D8731675388600CCA065 /* Default-568h@2x.png in Resources */,
 				A741D8761675388600CCA065 /* MainStoryboard.storyboard in Resources */,
+				A741D8871675455400CCA065 /* icono.png in Resources */,
+				A741D88D1675485100CCA065 /* tabbar.png in Resources */,
+				A741D88E1675485100CCA065 /* tabbar@2x.png in Resources */,
+				A741D89316754B2500CCA065 /* backgroundHome.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -170,6 +214,10 @@
 			files = (
 				A741D8691675388600CCA065 /* main.m in Sources */,
 				A741D86D1675388600CCA065 /* AppDelegate.m in Sources */,
+				A741D8811675434400CCA065 /* ClientesCollectionViewController.m in Sources */,
+				A741D8841675439300CCA065 /* ClientesCollectionViewCell.m in Sources */,
+				A741D88A167547AF00CCA065 /* TabBarViewController.m in Sources */,
+				A741D891167549A400CCA065 /* NavigationViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
