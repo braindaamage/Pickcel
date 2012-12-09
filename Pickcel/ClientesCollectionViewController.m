@@ -39,7 +39,7 @@
 }
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    return 100;
+    return 37;
 }
 
 - (void)didReceiveMemoryWarning
