@@ -1,18 +1,18 @@
 //
-//  NavigationViewController.m
+//  VistaClienteViewController.m
 //  Pickcel
 //
-//  Created by Leonardo on 09-12-12.
+//  Created by Leonardo Olivares on 10-12-12.
 //  Copyright (c) 2012 Reframe. All rights reserved.
 //
 
-#import "NavigationViewController.h"
+#import "VistaClienteViewController.h"
 
-@interface NavigationViewController ()
+@interface VistaClienteViewController ()
 
 @end
 
-@implementation NavigationViewController
+@implementation VistaClienteViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -27,7 +27,6 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    //[self.navigationBar setBackgroundImage:[UIImage imageNamed:@"tabbar.png"] forBarMetrics:UIBarMetricsDefault];
 }
 
 - (void)didReceiveMemoryWarning

@@ -11,4 +11,5 @@
 @interface ClientesCollectionViewCell : UICollectionViewCell
 @property (weak, nonatomic) IBOutlet UIButton *botonVista;
 
+
 @end

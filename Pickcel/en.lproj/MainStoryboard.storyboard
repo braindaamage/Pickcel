@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2844" systemVersion="12C60" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="zcj-HU-dns">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2844" systemVersion="11G63" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="zcj-HU-dns">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1930"/>
     </dependencies>
@@ -17,14 +17,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UIL-9h-sNz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="801" y="-515"/>
+            <point key="canvasLocation" x="801" y="-479"/>
         </scene>
         <!--Navigation View Controller - Pickcel-->
         <scene sceneID="fFw-Vf-a8D">
             <objects>
                 <navigationController definesPresentationContext="YES" id="loe-qp-D3Q" customClass="NavigationViewController" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Pickcel" id="BZV-S6-ydy"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="blackOpaque" id="vPU-Me-eAc">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="blackOpaque" id="vPU-Me-eAc" customClass="CustomNavigationBar">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -33,7 +33,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8KY-RN-h7O" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="801" y="168"/>
+            <point key="canvasLocation" x="801" y="132"/>
         </scene>
         <!--View Controller - Contacto-->
         <scene sceneID="h8U-Jz-prM">
@@ -48,7 +48,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PKr-SI-Myb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="801" y="866"/>
+            <point key="canvasLocation" x="801" y="762"/>
         </scene>
         <!--Tab Bar View Controller-->
         <scene sceneID="2sj-ER-VUn">
@@ -107,6 +107,9 @@
                                             <state key="highlighted">
                                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
+                                            <connections>
+                                                <action selector="celdaBotonPulsar:" destination="e6b-9n-K1E" eventType="touchUpInside" id="9xf-rn-39m"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -117,7 +120,7 @@
                                     <constraint firstItem="fkT-0s-yZ6" firstAttribute="bottom" secondItem="VRo-xW-MAL" secondAttribute="bottom" type="default" id="lMH-Ex-BWT"/>
                                 </constraints>
                                 <connections>
-                                    <outlet property="botonVista" destination="fkT-0s-yZ6" id="4fj-Kv-Hk0"/>
+                                    <outlet property="botonVista" destination="fkT-0s-yZ6" id="Swb-gt-sUe"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -131,11 +134,67 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Rz-Tq-TbF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1302" y="168"/>
+            <point key="canvasLocation" x="1302" y="132"/>
+        </scene>
+        <!--Vista Cliente View Controller-->
+        <scene sceneID="rSQ-Fl-zEG">
+            <objects>
+                <viewController storyboardIdentifier="VistaClienteVCID" id="tXw-Mj-ctq" customClass="VistaClienteViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ZWX-fU-5xG">
+                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Titulo" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iym-4i-2Bs">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="icono.png" translatesAutoresizingMaskIntoConstraints="NO" id="Gl6-0Q-Pfx">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="Xcy-lf-Hd4"/>
+                                    <constraint firstAttribute="height" constant="128" id="aRi-OM-fcN"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="DESCRIPCIÓN" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3lm-QA-aQd">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="123" id="1J2-Iy-6Rj"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6C9-dJ-cPq">
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Capturar">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="Iym-4i-2Bs" firstAttribute="top" secondItem="ZWX-fU-5xG" secondAttribute="top" constant="20" symbolic="YES" type="default" id="00P-xX-fmO"/>
+                            <constraint firstItem="Gl6-0Q-Pfx" firstAttribute="top" secondItem="Iym-4i-2Bs" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="7iY-yq-iam"/>
+                            <constraint firstItem="6C9-dJ-cPq" firstAttribute="centerX" secondItem="ZWX-fU-5xG" secondAttribute="centerX" type="default" id="Dw3-xL-m4D"/>
+                            <constraint firstItem="Gl6-0Q-Pfx" firstAttribute="centerX" secondItem="Iym-4i-2Bs" secondAttribute="centerX" type="default" id="GvH-Ad-F1Y"/>
+                            <constraint firstItem="6C9-dJ-cPq" firstAttribute="top" secondItem="3lm-QA-aQd" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="NVe-0x-37J"/>
+                            <constraint firstItem="6C9-dJ-cPq" firstAttribute="centerX" secondItem="3lm-QA-aQd" secondAttribute="centerX" type="default" id="VwA-kV-G2n"/>
+                            <constraint firstItem="3lm-QA-aQd" firstAttribute="centerX" secondItem="Gl6-0Q-Pfx" secondAttribute="centerX" type="default" id="r3q-5v-bKY"/>
+                            <constraint firstItem="3lm-QA-aQd" firstAttribute="top" secondItem="Gl6-0Q-Pfx" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="sh2-zK-Ucz"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rD9-vL-IXz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1790" y="132"/>
         </scene>
     </scenes>
     <resources>
         <image name="backgroundHome.png" width="640" height="960"/>
+        <image name="icono.png" width="72" height="71"/>
     </resources>
     <classes>
         <class className="ClientesCollectionViewCell" superclassName="UICollectionViewCell">
@@ -146,6 +205,12 @@
         </class>
         <class className="ClientesCollectionViewController" superclassName="UICollectionViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ClientesCollectionViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="celdaBotonPulsar:"/>
+            </relationships>
+        </class>
+        <class className="CustomNavigationBar" superclassName="UINavigationBar">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CustomNavigationBar.h"/>
         </class>
         <class className="NSLayoutConstraint" superclassName="NSObject">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
@@ -168,8 +233,8 @@
         <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
         </class>
-        <class className="UICollectionViewLayout" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewLayout.h"/>
+        <class className="VistaClienteViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/VistaClienteViewController.h"/>
         </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

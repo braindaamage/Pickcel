@@ -8,6 +8,7 @@
 
 #import "ClientesCollectionViewController.h"
 #import "ClientesCollectionViewCell.h"
+#import "VistaClienteViewController.h"
 
 @interface ClientesCollectionViewController ()
 
@@ -28,6 +29,8 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Volver" style:UIBarButtonItemStyleBordered target:nil action:nil];
+    self.navigationItem.backBarButtonItem = backButton;
 }
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -48,4 +51,9 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)celdaBotonPulsar:(id)sender {
+    VistaClienteViewController *vistaCliente = [self.storyboard instantiateViewControllerWithIdentifier:@"VistaClienteVCID"];
+    
+    [self.navigationController pushViewController:vistaCliente animated:YES];
+}
 @end

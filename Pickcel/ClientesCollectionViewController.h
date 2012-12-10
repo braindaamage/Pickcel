@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface ClientesCollectionViewController : UICollectionViewController
+- (IBAction)celdaBotonPulsar:(id)sender;
 
 @end
