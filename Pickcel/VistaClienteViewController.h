@@ -9,5 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface VistaClienteViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UILabel *tituloLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *imagenView;
+@property (weak, nonatomic) IBOutlet UILabel *descripcionLabel;
+@property (weak, nonatomic) NSString *capturarDato;
 
 @end

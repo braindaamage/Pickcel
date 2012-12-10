@@ -13,6 +13,7 @@
 @end
 
 @implementation VistaClienteViewController
+@synthesize tituloLabel, imagenView, descripcionLabel, capturarDato;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -27,6 +28,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    self.tituloLabel.text = capturarDato;
 }
 
 - (void)didReceiveMemoryWarning

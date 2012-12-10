@@ -186,6 +186,11 @@
                             <constraint firstItem="3lm-QA-aQd" firstAttribute="top" secondItem="Gl6-0Q-Pfx" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="sh2-zK-Ucz"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="descripcionLabel" destination="3lm-QA-aQd" id="a8i-Dh-rtI"/>
+                        <outlet property="imagenView" destination="Gl6-0Q-Pfx" id="lLf-Xe-V5M"/>
+                        <outlet property="tituloLabel" destination="Iym-4i-2Bs" id="iub-6E-MHI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rD9-vL-IXz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -196,47 +201,6 @@
         <image name="backgroundHome.png" width="640" height="960"/>
         <image name="icono.png" width="72" height="71"/>
     </resources>
-    <classes>
-        <class className="ClientesCollectionViewCell" superclassName="UICollectionViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ClientesCollectionViewCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="botonVista" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-        <class className="ClientesCollectionViewController" superclassName="UICollectionViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ClientesCollectionViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="celdaBotonPulsar:"/>
-            </relationships>
-        </class>
-        <class className="CustomNavigationBar" superclassName="UINavigationBar">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CustomNavigationBar.h"/>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-        <class className="NavigationViewController" superclassName="UINavigationController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NavigationViewController.h"/>
-        </class>
-        <class className="TabBarViewController" superclassName="UITabBarController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/TabBarViewController.h"/>
-        </class>
-        <class className="UICollectionReusableView" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionReusableView.h"/>
-        </class>
-        <class className="UICollectionViewCell" superclassName="UICollectionReusableView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewCell.h"/>
-        </class>
-        <class className="UICollectionViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewController.h"/>
-        </class>
-        <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
-        </class>
-        <class className="VistaClienteViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/VistaClienteViewController.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

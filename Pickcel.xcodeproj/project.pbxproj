@@ -151,8 +151,6 @@
 				A741D889167547AF00CCA065 /* TabBarViewController.m */,
 				A741D87F1675434400CCA065 /* ClientesCollectionViewController.h */,
 				A741D8801675434400CCA065 /* ClientesCollectionViewController.m */,
-				A7D2435C1676300B00FE32C3 /* VistaClienteViewController.h */,
-				A7D2435D1676300B00FE32C3 /* VistaClienteViewController.m */,
 			);
 			name = Controladores;
 			sourceTree = "<group>";
@@ -160,6 +158,8 @@
 		A7D2435B16762CF000FE32C3 /* Vistas */ = {
 			isa = PBXGroup;
 			children = (
+				A7D2435C1676300B00FE32C3 /* VistaClienteViewController.h */,
+				A7D2435D1676300B00FE32C3 /* VistaClienteViewController.m */,
 				A7D243561676268000FE32C3 /* CustomNavigationBar.h */,
 				A7D243571676268000FE32C3 /* CustomNavigationBar.m */,
 				A741D8821675439300CCA065 /* ClientesCollectionViewCell.h */,

@@ -37,6 +37,7 @@
     ClientesCollectionViewCell *celda = [collectionView dequeueReusableCellWithReuseIdentifier:@"celdaID" forIndexPath:indexPath];
     
     [celda.botonVista setBackgroundImage: [UIImage imageNamed:@"icono.png"] forState:UIControlStateNormal];
+    [celda.botonVista setTag:indexPath.item];
     
     return celda;
 }
@@ -53,6 +54,11 @@
 
 - (IBAction)celdaBotonPulsar:(id)sender {
     VistaClienteViewController *vistaCliente = [self.storyboard instantiateViewControllerWithIdentifier:@"VistaClienteVCID"];
+    UIButton *boton = (UIButton *) sender;
+    
+    NSString *descripcion = [[NSString alloc] initWithFormat:@"Item: %i", boton.tag];
+    
+    vistaCliente.capturarDato = descripcion;
     
     [self.navigationController pushViewController:vistaCliente animated:YES];
 }
