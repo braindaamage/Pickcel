@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ClientesCollectionViewController : UICollectionViewController
+@interface ClientesCollectionViewController : UICollectionViewController <NSXMLParserDelegate>
 - (IBAction)celdaBotonPulsar:(id)sender;
 
 @end

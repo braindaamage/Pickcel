@@ -25,8 +25,10 @@
 		A741D88E1675485100CCA065 /* tabbar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A741D88C1675485100CCA065 /* tabbar@2x.png */; };
 		A741D891167549A400CCA065 /* NavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A741D890167549A400CCA065 /* NavigationViewController.m */; };
 		A741D89316754B2500CCA065 /* backgroundHome.png in Resources */ = {isa = PBXBuildFile; fileRef = A741D89216754B2500CCA065 /* backgroundHome.png */; };
+		A75884A916766CC5007C0026 /* feeds.xml in Resources */ = {isa = PBXBuildFile; fileRef = A75884A816766CC5007C0026 /* feeds.xml */; };
+		A75884AC1676851E007C0026 /* ObtenerDescuentoNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A75884AB1676851D007C0026 /* ObtenerDescuentoNavigationViewController.m */; };
+		A75884AF16768741007C0026 /* CapturaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A75884AE16768741007C0026 /* CapturaViewController.m */; };
 		A7D243581676268000FE32C3 /* CustomNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = A7D243571676268000FE32C3 /* CustomNavigationBar.m */; };
-		A7D2435E1676300B00FE32C3 /* VistaClienteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7D2435D1676300B00FE32C3 /* VistaClienteViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,10 +58,13 @@
 		A741D88F167549A400CCA065 /* NavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigationViewController.h; sourceTree = "<group>"; };
 		A741D890167549A400CCA065 /* NavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigationViewController.m; sourceTree = "<group>"; };
 		A741D89216754B2500CCA065 /* backgroundHome.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backgroundHome.png; sourceTree = "<group>"; };
+		A75884A816766CC5007C0026 /* feeds.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = feeds.xml; sourceTree = "<group>"; };
+		A75884AA1676851D007C0026 /* ObtenerDescuentoNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObtenerDescuentoNavigationViewController.h; sourceTree = "<group>"; };
+		A75884AB1676851D007C0026 /* ObtenerDescuentoNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObtenerDescuentoNavigationViewController.m; sourceTree = "<group>"; };
+		A75884AD16768741007C0026 /* CapturaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CapturaViewController.h; sourceTree = "<group>"; };
+		A75884AE16768741007C0026 /* CapturaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CapturaViewController.m; sourceTree = "<group>"; };
 		A7D243561676268000FE32C3 /* CustomNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomNavigationBar.h; sourceTree = "<group>"; };
 		A7D243571676268000FE32C3 /* CustomNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomNavigationBar.m; sourceTree = "<group>"; };
-		A7D2435C1676300B00FE32C3 /* VistaClienteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VistaClienteViewController.h; sourceTree = "<group>"; };
-		A7D2435D1676300B00FE32C3 /* VistaClienteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VistaClienteViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +111,7 @@
 		A741D8621675388600CCA065 /* Pickcel */ = {
 			isa = PBXGroup;
 			children = (
+				A75884A3167668DE007C0026 /* xml */,
 				A7D2435B16762CF000FE32C3 /* Vistas */,
 				A7D2435A16762CBB00FE32C3 /* Controladores */,
 				A741D885167544A600CCA065 /* Artwork */,
@@ -142,15 +148,27 @@
 			path = Artwork;
 			sourceTree = "<group>";
 		};
+		A75884A3167668DE007C0026 /* xml */ = {
+			isa = PBXGroup;
+			children = (
+				A75884A816766CC5007C0026 /* feeds.xml */,
+			);
+			path = xml;
+			sourceTree = "<group>";
+		};
 		A7D2435A16762CBB00FE32C3 /* Controladores */ = {
 			isa = PBXGroup;
 			children = (
+				A75884AD16768741007C0026 /* CapturaViewController.h */,
+				A75884AE16768741007C0026 /* CapturaViewController.m */,
 				A741D88F167549A400CCA065 /* NavigationViewController.h */,
 				A741D890167549A400CCA065 /* NavigationViewController.m */,
 				A741D888167547AF00CCA065 /* TabBarViewController.h */,
 				A741D889167547AF00CCA065 /* TabBarViewController.m */,
 				A741D87F1675434400CCA065 /* ClientesCollectionViewController.h */,
 				A741D8801675434400CCA065 /* ClientesCollectionViewController.m */,
+				A75884AA1676851D007C0026 /* ObtenerDescuentoNavigationViewController.h */,
+				A75884AB1676851D007C0026 /* ObtenerDescuentoNavigationViewController.m */,
 			);
 			name = Controladores;
 			sourceTree = "<group>";
@@ -158,8 +176,6 @@
 		A7D2435B16762CF000FE32C3 /* Vistas */ = {
 			isa = PBXGroup;
 			children = (
-				A7D2435C1676300B00FE32C3 /* VistaClienteViewController.h */,
-				A7D2435D1676300B00FE32C3 /* VistaClienteViewController.m */,
 				A7D243561676268000FE32C3 /* CustomNavigationBar.h */,
 				A7D243571676268000FE32C3 /* CustomNavigationBar.m */,
 				A741D8821675439300CCA065 /* ClientesCollectionViewCell.h */,
@@ -228,6 +244,7 @@
 				A741D88D1675485100CCA065 /* tabbar.png in Resources */,
 				A741D88E1675485100CCA065 /* tabbar@2x.png in Resources */,
 				A741D89316754B2500CCA065 /* backgroundHome.png in Resources */,
+				A75884A916766CC5007C0026 /* feeds.xml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -245,7 +262,8 @@
 				A741D88A167547AF00CCA065 /* TabBarViewController.m in Sources */,
 				A741D891167549A400CCA065 /* NavigationViewController.m in Sources */,
 				A7D243581676268000FE32C3 /* CustomNavigationBar.m in Sources */,
-				A7D2435E1676300B00FE32C3 /* VistaClienteViewController.m in Sources */,
+				A75884AC1676851E007C0026 /* ObtenerDescuentoNavigationViewController.m in Sources */,
+				A75884AF16768741007C0026 /* CapturaViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
