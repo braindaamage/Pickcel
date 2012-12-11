@@ -264,66 +264,6 @@
     <resources>
         <image name="backgroundHome.png" width="640" height="960"/>
     </resources>
-    <classes>
-        <class className="CapturaViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CapturaViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="abrirCamara:"/>
-                <relationship kind="action" name="activarFiltro:"/>
-                <relationship kind="action" name="botonFiltros:"/>
-                <relationship kind="action" name="cerrarObtenerDescuento:"/>
-                <relationship kind="outlet" name="botonEnviarVista" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="botonFiltrosVista" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="coleccionFiltrosVista" candidateClass="UICollectionView"/>
-                <relationship kind="outlet" name="imagenObtenidaVista" candidateClass="UIImageView"/>
-            </relationships>
-        </class>
-        <class className="ClientesCollectionViewCell" superclassName="UICollectionViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ClientesCollectionViewCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="botonVista" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-        <class className="ClientesCollectionViewController" superclassName="UICollectionViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ClientesCollectionViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="celdaBotonPulsar:"/>
-            </relationships>
-        </class>
-        <class className="CustomNavigationBar" superclassName="UINavigationBar">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CustomNavigationBar.h"/>
-        </class>
-        <class className="FiltrosCollectionViewCell" superclassName="UICollectionViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FiltrosCollectionViewCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="botonVista" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-        <class className="NavigationViewController" superclassName="UINavigationController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NavigationViewController.h"/>
-        </class>
-        <class className="ObtenerDescuentoNavigationViewController" superclassName="UINavigationController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ObtenerDescuentoNavigationViewController.h"/>
-        </class>
-        <class className="TabBarViewController" superclassName="UITabBarController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/TabBarViewController.h"/>
-        </class>
-        <class className="UICollectionReusableView" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionReusableView.h"/>
-        </class>
-        <class className="UICollectionViewCell" superclassName="UICollectionReusableView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewCell.h"/>
-        </class>
-        <class className="UICollectionViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewController.h"/>
-        </class>
-        <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
