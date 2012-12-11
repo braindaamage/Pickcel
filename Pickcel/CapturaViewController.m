@@ -8,8 +8,11 @@
 
 #import "CapturaViewController.h"
 #import "FiltrosCollectionViewCell.h"
+#import "GPUImage.h"
 
-@interface CapturaViewController ()
+@interface CapturaViewController () {
+    UIImage *imagenOriginal;
+}
 
 @end
 
@@ -60,7 +63,53 @@
     }];
 }
 
+
+// Aplicar Filtro a Imagen
 - (IBAction)activarFiltro:(id)sender {
+    UIButton *boton = (UIButton *) sender;
+    BOOL sinFiltro = NO;
+    
+    GPUImageFilter *selectedFilter;
+    switch (boton.tag) {
+        case 0:
+            sinFiltro = YES;
+            break;
+        case 1:
+            selectedFilter = [[GPUImageGrayscaleFilter alloc] init];
+            break;
+        case 2:
+            selectedFilter = [[GPUImageSepiaFilter alloc] init];
+            break;
+        case 3:
+            selectedFilter = [[GPUImageSketchFilter alloc] init];
+            break;
+        case 4:
+            selectedFilter = [[GPUImageColorInvertFilter alloc] init];
+            break;
+        case 5:
+            selectedFilter = [[GPUImageToonFilter alloc] init];
+            break;
+        case 6:
+            selectedFilter = [[GPUImagePinchDistortionFilter alloc] init];
+            break;
+        case 7:
+            selectedFilter = [[GPUImagePixellateFilter alloc] init];
+            break;
+        default:
+            break;
+    }
+    
+     NSLog(@"Antes");
+    
+    UIImage *filteredImage;
+    if (!sinFiltro) {
+        filteredImage = [selectedFilter imageByFilteringImage:imagenOriginal];
+    } else {
+        filteredImage = imagenOriginal;
+    }
+    
+    NSLog(@"Despues");
+    [imagenObtenidaVista setImage:filteredImage];
 }
 
 // Función para iniciar camara
@@ -84,9 +133,9 @@
 }
 
 - (void) imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
-    UIImage *imagen = [info objectForKey:UIImagePickerControllerOriginalImage];
+    imagenOriginal = [info objectForKey:UIImagePickerControllerOriginalImage];
     
-    [imagenObtenidaVista setImage:imagen];
+    [imagenObtenidaVista setImage:imagenOriginal];
     
     botonEnviarVista.enabled = YES;
     botonFiltrosVista.enabled = YES;
@@ -102,12 +151,13 @@
     FiltrosCollectionViewCell *celda = [collectionView dequeueReusableCellWithReuseIdentifier:@"FiltroCellID" forIndexPath:indexPath];
     
     [celda.botonVista setBackgroundImage: [UIImage imageNamed:@"icono.png"] forState:UIControlStateNormal];
+    [celda.botonVista setTag:indexPath.item];
     
     return celda;
 }
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    return 10;
+    return 8;
 }
 
 // Fin Funciones UICollectionView

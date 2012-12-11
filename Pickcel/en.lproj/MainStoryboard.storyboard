@@ -140,7 +140,7 @@
         <scene sceneID="g19-ae-whE">
             <objects>
                 <navigationController storyboardIdentifier="ObtenerDescuentroCID" definesPresentationContext="YES" id="umV-uA-oBW" customClass="ObtenerDescuentoNavigationViewController" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="0Yb-6x-tZI">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="blackOpaque" id="0Yb-6x-tZI">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -211,7 +211,7 @@
                                     <outlet property="delegate" destination="BUR-uE-fr5" id="pwj-LQ-vAk"/>
                                 </connections>
                             </collectionView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KOZ-RW-oKg">
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="blackOpaque" translatesAutoresizingMaskIntoConstraints="NO" id="KOZ-RW-oKg">
                                 <items>
                                     <barButtonItem systemItem="camera" id="C6C-dK-Foe">
                                         <connections>
@@ -272,7 +272,6 @@
                 <relationship kind="action" name="activarFiltro:"/>
                 <relationship kind="action" name="botonFiltros:"/>
                 <relationship kind="action" name="cerrarObtenerDescuento:"/>
-                <relationship kind="outlet" name="botonEnviar" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="botonEnviarVista" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="botonFiltrosVista" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="coleccionFiltrosVista" candidateClass="UICollectionView"/>
@@ -323,9 +322,6 @@
         </class>
         <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
-        </class>
-        <class className="UICollectionViewLayout" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewLayout.h"/>
         </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
