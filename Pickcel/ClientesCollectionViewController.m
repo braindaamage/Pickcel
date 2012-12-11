@@ -108,8 +108,8 @@
     
     vistaCliente.cliente = [clientes objectAtIndex:boton.tag];
     
-    //[self.navigationController pushViewController:vistaCliente animated:YES];
     [self presentViewController:vistaCliente animated:YES completion:nil];
 
 }
+
 @end
