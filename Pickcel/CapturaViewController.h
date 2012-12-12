@@ -7,16 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DLCImagePickerController.h"
 
-@interface CapturaViewController : UIViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate, UICollectionViewDelegate>
+@interface CapturaViewController : UIViewController <DLCImagePickerDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *imagenObtenidaVista;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *botonEnviarVista;
-@property (weak, nonatomic) IBOutlet UICollectionView *coleccionFiltrosVista;
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *botonFiltrosVista;
 
 - (IBAction)cerrarObtenerDescuento:(id)sender;
 - (IBAction)abrirCamara:(id)sender;
-- (IBAction)botonFiltros:(id)sender;
-- (IBAction)activarFiltro:(id)sender;
 
 @end
