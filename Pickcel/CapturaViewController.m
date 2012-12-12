@@ -8,9 +8,7 @@
 
 #import "CapturaViewController.h"
 
-@interface CapturaViewController () {
-    UIImage *imagenOriginal;
-}
+@interface CapturaViewController ()
 
 @end
 
@@ -62,10 +60,8 @@
 
 
 - (void) imagePickerController:(DLCImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
-    imagenOriginal = [info objectForKey:@"data"];
     
-    
-    [imagenObtenidaVista setImage:imagenOriginal];
+    [imagenObtenidaVista setImage:[UIImage imageWithData:[info objectForKey:@"data"]]];
     
     botonEnviarVista.enabled = YES;
     

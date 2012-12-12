@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface ClientesCollectionViewController : UICollectionViewController <NSXMLParserDelegate>
+@property (strong, nonatomic) IBOutlet UICollectionView *vistaColeccion;
 - (IBAction)celdaBotonPulsar:(id)sender;
 
 @end

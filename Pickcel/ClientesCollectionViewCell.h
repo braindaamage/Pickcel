@@ -10,6 +10,9 @@
 
 @interface ClientesCollectionViewCell : UICollectionViewCell
 @property (weak, nonatomic) IBOutlet UIButton *botonVista;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *indicadorCarga;
+@property (weak, nonatomic) IBOutlet UIImageView *imagenBoton;
 
+- (void) cargarDatos:(NSMutableDictionary *) cliente;
 
 @end

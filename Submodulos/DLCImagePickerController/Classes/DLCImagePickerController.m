@@ -407,9 +407,8 @@
         
         UIImage *currentFilteredVideoFrame = [processUpTo imageFromCurrentlyProcessedOutputWithOrientation:staticPictureOriginalOrientation];
 
-        //NSDictionary *info = [[NSDictionary alloc] initWithObjectsAndKeys:UIImageJPEGRepresentation(currentFilteredVideoFrame, self.outputJPEGQuality), @"data", nil];
-        // FIX para obtener imagen filtrada sin pasar por función UIImageJPEGRepresentation
-        NSDictionary *info = [[NSDictionary alloc] initWithObjectsAndKeys:currentFilteredVideoFrame, @"data", nil];
+        NSDictionary *info = [[NSDictionary alloc] initWithObjectsAndKeys:UIImageJPEGRepresentation(currentFilteredVideoFrame, self.outputJPEGQuality), @"data", nil];
+        
         [self.delegate imagePickerController:self didFinishPickingMediaWithInfo:info];
     }
 }

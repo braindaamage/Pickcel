@@ -9,6 +9,7 @@
 #import "ClientesCollectionViewCell.h"
 
 @implementation ClientesCollectionViewCell
+@synthesize botonVista, indicadorCarga, imagenBoton;
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -27,5 +28,20 @@
     // Drawing code
 }
 */
+
+- (void) cargarDatos:(NSMutableDictionary *) cliente {
+    NSOperationQueue *manejaHilos = [NSOperationQueue new];
+    NSInvocationOperation *operacion = [[NSInvocationOperation alloc] initWithTarget:self selector:@selector(cargarImagen:) object:[cliente valueForKey:@"imagen"]];
+    
+    [manejaHilos addOperation:operacion];
+}
+
+- (void) cargarImagen:(NSString *) url {
+    UIImage *imagen = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:url]]];
+    
+    [self.imagenBoton performSelectorOnMainThread:@selector(setImage:) withObject:imagen waitUntilDone:YES];
+
+    [self.indicadorCarga performSelectorOnMainThread:@selector(stopAnimating) withObject:nil waitUntilDone:YES];
+}
 
 @end

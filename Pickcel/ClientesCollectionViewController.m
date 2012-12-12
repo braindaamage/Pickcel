@@ -18,6 +18,7 @@
 @end
 
 @implementation ClientesCollectionViewController
+@synthesize vistaColeccion;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -34,21 +35,45 @@
 	// Do any additional setup after loading the view.
     UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Volver" style:UIBarButtonItemStyleBordered target:nil action:nil];
     self.navigationItem.backBarButtonItem = backButton;
+    self.vistaColeccion.backgroundColor = [UIColor colorWithPatternImage:
+                                           [UIImage imageNamed:@"micro_carbon"]];
     
     
     // Configuración para parseo de XML
     clientes = [[NSMutableArray alloc] init];
     
     // Parseo archivo local
-    NSXMLParser *parseador = [[NSXMLParser alloc] initWithData:[NSData dataWithContentsOfFile:[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"feeds.xml"]]];
+    //NSXMLParser *parseador = [[NSXMLParser alloc] initWithData:[NSData dataWithContentsOfFile:[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"feeds.xml"]]];
     // Parseo URL
-    // NSURL *url = [NSURL URLWithString:@"URL"];
-    // NSXMLParser *parseador = [[NSXMLParser alloc] initWithContentsOfURL:url];
+     NSURL *url = [NSURL URLWithString:@"http://www.reframe.cl/pickcel/feeds.xml"];
+     NSXMLParser *parseador = [[NSXMLParser alloc] initWithContentsOfURL:url];
     
     parseador.delegate = self;
     [parseador parse];
-    //NSLog(@"%@", clientes);
+    
+    [self cargarDatos];
 }
+
+- (void) cargarDatos {
+    NSOperationQueue *manejaHilos = [NSOperationQueue new];
+    
+    NSInvocationOperation *operacion;
+    
+    for (int i = 0; i < [clientes count]; i++) {
+        operacion = [[NSInvocationOperation alloc] initWithTarget:self selector:@selector(cargarImagen:) object:[clientes objectAtIndex:i]];
+        [manejaHilos addOperation:operacion];
+    }
+}
+
+- (void) cargarImagen:(NSDictionary *) itemActual {
+    UIImage *imagen = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[itemActual valueForKey:@"url"]]]];
+    
+    ClientesCollectionViewCell *celda = [self.collectionView dequeueReusableCellWithReuseIdentifier:@"celdaID" forIndexPath:[itemActual valueForKey:@"indexPah"]];
+    
+    [celda.imagenBoton performSelectorOnMainThread:@selector(setImage:) withObject:imagen waitUntilDone:YES];
+                                         
+}
+
 
 // Funciones NSXMLParseDelegate
 
@@ -87,7 +112,11 @@
     ClientesCollectionViewCell *celda = [collectionView dequeueReusableCellWithReuseIdentifier:@"celdaID" forIndexPath:indexPath];
     
     [celda.botonVista setBackgroundImage: [UIImage imageNamed:@"icono.png"] forState:UIControlStateNormal];
+    //[celda.botonVista setAlpha:0];
+    [celda.indicadorCarga startAnimating];
     [celda.botonVista setTag:indexPath.item];
+    
+    //[celda cargarDatos:[clientes objectAtIndex:indexPath.item]];
     
     return celda;
 }
