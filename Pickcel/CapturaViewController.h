@@ -12,6 +12,7 @@
 @interface CapturaViewController : UIViewController <DLCImagePickerDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *imagenObtenidaVista;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *botonEnviarVista;
+@property (strong, nonatomic) IBOutlet UIView *capturaView;
 
 - (IBAction)cerrarObtenerDescuento:(id)sender;
 - (IBAction)abrirCamara:(id)sender;

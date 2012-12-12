@@ -46,7 +46,7 @@
 
 - (void)customizeInterface
 {
-    UIImage* tabBarBackground = [UIImage imageNamed:@"tabbar.png"];
+    UIImage* tabBarBackground = [UIImage imageNamed:@"tabbar"];
     [[UITabBar appearance] setBackgroundImage:tabBarBackground];
 }
 

@@ -15,7 +15,7 @@
 @end
 
 @implementation CapturaViewController
-@synthesize imagenObtenidaVista, botonEnviarVista;
+@synthesize imagenObtenidaVista, botonEnviarVista, capturaView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -31,6 +31,8 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     botonEnviarVista.enabled = NO;
+    self.capturaView.backgroundColor = [UIColor colorWithPatternImage:
+                                 [UIImage imageNamed:@"micro_carbon"]];
 }
 
 - (void)didReceiveMemoryWarning
