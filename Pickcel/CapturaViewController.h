@@ -14,8 +14,15 @@
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *botonEnviarVista;
 @property (strong, nonatomic) IBOutlet UIView *capturaView;
 @property (weak, nonatomic) IBOutlet UIToolbar *toolBar;
+@property (weak, nonatomic) IBOutlet UIProgressView *progressBar;
+@property (weak, nonatomic) IBOutlet UIButton *botonCancelarUploadVista;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *botonCamara;
+@property (weak, nonatomic) IBOutlet UILabel *labelError;
 
 - (IBAction)cerrarObtenerDescuento:(id)sender;
 - (IBAction)abrirCamara:(id)sender;
+- (IBAction)botonEnviar:(id)sender;
+- (IBAction)botonCancelarUpload:(id)sender;
+
 
 @end
