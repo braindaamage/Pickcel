@@ -13,6 +13,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *imagenObtenidaVista;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *botonEnviarVista;
 @property (strong, nonatomic) IBOutlet UIView *capturaView;
+@property (weak, nonatomic) IBOutlet UIToolbar *toolBar;
 
 - (IBAction)cerrarObtenerDescuento:(id)sender;
 - (IBAction)abrirCamara:(id)sender;

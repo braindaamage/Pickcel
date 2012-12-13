@@ -1,14 +1,14 @@
 //
-//  ClientesCollectionViewCell.m
+//  CustomView.m
 //  Pickcel
 //
-//  Created by Leonardo on 09-12-12.
+//  Created by Leonardo on 13-12-12.
 //  Copyright (c) 2012 Reframe. All rights reserved.
 //
 
-#import "ClientesCollectionViewCell.h"
+#import "CustomView.h"
 
-@implementation ClientesCollectionViewCell
+@implementation CustomView
 
 - (id)initWithFrame:(CGRect)frame
 {

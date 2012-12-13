@@ -18,7 +18,7 @@
 @end
 
 @implementation ClientesCollectionViewController
-@synthesize vistaColeccion;
+@synthesize vistaColeccion, indicadorCarga;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -35,9 +35,18 @@
 	// Do any additional setup after loading the view.
     UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Volver" style:UIBarButtonItemStyleBordered target:nil action:nil];
     self.navigationItem.backBarButtonItem = backButton;
-    self.vistaColeccion.backgroundColor = [UIColor colorWithPatternImage:
-                                           [UIImage imageNamed:@"micro_carbon"]];
+    self.vistaColeccion.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:@"micro_carbon"]];
     
+    [self obtenerClientes];
+}
+
+- (void) obtenerClientes {
+    
+    if (self.navigationItem.rightBarButtonItem != nil) {
+        self.navigationItem.rightBarButtonItem = nil;
+    }
+    
+    [self.indicadorCarga startAnimating];
     
     // Configuración para parseo de XML
     clientes = [[NSMutableArray alloc] init];
@@ -45,37 +54,28 @@
     // Parseo archivo local
     //NSXMLParser *parseador = [[NSXMLParser alloc] initWithData:[NSData dataWithContentsOfFile:[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"feeds.xml"]]];
     // Parseo URL
-     NSURL *url = [NSURL URLWithString:@"http://www.reframe.cl/pickcel/feeds.xml"];
-     NSXMLParser *parseador = [[NSXMLParser alloc] initWithContentsOfURL:url];
+    
+    NSURL *url = [NSURL URLWithString:@"http://www.reframe.cl/pickcel/feeds.xml"];
+    
+    NSXMLParser *parseador = [[NSXMLParser alloc] initWithContentsOfURL:url];
     
     parseador.delegate = self;
-    [parseador parse];
     
-    [self cargarDatos];
-}
-
-- (void) cargarDatos {
-    NSOperationQueue *manejaHilos = [NSOperationQueue new];
+    NSOperationQueue *manejaHilo = [NSOperationQueue new];
+    NSInvocationOperation *operacion = [[NSInvocationOperation alloc] initWithTarget:parseador selector:@selector(parse) object:nil];
     
-    NSInvocationOperation *operacion;
-    
-    for (int i = 0; i < [clientes count]; i++) {
-        operacion = [[NSInvocationOperation alloc] initWithTarget:self selector:@selector(cargarImagen:) object:[clientes objectAtIndex:i]];
-        [manejaHilos addOperation:operacion];
-    }
-}
-
-- (void) cargarImagen:(NSDictionary *) itemActual {
-    UIImage *imagen = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[itemActual valueForKey:@"url"]]]];
-    
-    ClientesCollectionViewCell *celda = [self.collectionView dequeueReusableCellWithReuseIdentifier:@"celdaID" forIndexPath:[itemActual valueForKey:@"indexPah"]];
-    
-    [celda.imagenBoton performSelectorOnMainThread:@selector(setImage:) withObject:imagen waitUntilDone:YES];
-                                         
+    [manejaHilo addOperation:operacion];
+    //[parseador parse];
 }
 
 
 // Funciones NSXMLParseDelegate
+
+- (void)parser:(NSXMLParser *)parser parseErrorOccurred:(NSError *)parseError {
+    UIBarButtonItem *nuevoBoton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(obtenerClientes)];
+    [self.navigationItem performSelectorOnMainThread:@selector(setRightBarButtonItem:) withObject:nuevoBoton waitUntilDone:YES];
+    [self.indicadorCarga performSelectorOnMainThread:@selector(stopAnimating) withObject:nil waitUntilDone:YES];
+}
 
 -(void) parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict {
     if([elementName isEqualToString:@"cliente"]) {
@@ -90,7 +90,7 @@
     } else if ([elementName isEqualToString:@"descripcion"]) {
         [clienteActual setValue:currentNode forKey:@"descripcion"];
     } else if ([elementName isEqualToString:@"imagen"]) {
-        [clienteActual setValue:currentNode forKey:@"imagen"];
+        [clienteActual setValue:[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:currentNode]]] forKey:@"imagen"];
     } else if ([elementName isEqualToString:@"cliente"]) {
         [clientes addObject:clienteActual];
     }
@@ -106,17 +106,18 @@
     }
 }
 
+- (void)parserDidEndDocument:(NSXMLParser *)parser {
+    [self.collectionView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:YES];
+    [self.indicadorCarga performSelectorOnMainThread:@selector(stopAnimating) withObject:nil waitUntilDone:YES];
+}
+
 // Fin Funciones NSXMLParseDelegate
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     ClientesCollectionViewCell *celda = [collectionView dequeueReusableCellWithReuseIdentifier:@"celdaID" forIndexPath:indexPath];
     
-    [celda.botonVista setBackgroundImage: [UIImage imageNamed:@"icono.png"] forState:UIControlStateNormal];
-    //[celda.botonVista setAlpha:0];
-    [celda.indicadorCarga startAnimating];
     [celda.botonVista setTag:indexPath.item];
-    
-    //[celda cargarDatos:[clientes objectAtIndex:indexPath.item]];
+    [celda.botonVista setBackgroundImage:[[clientes objectAtIndex:indexPath.item] valueForKey:@"imagen"] forState:UIControlStateNormal];
     
     return celda;
 }

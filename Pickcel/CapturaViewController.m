@@ -13,7 +13,7 @@
 @end
 
 @implementation CapturaViewController
-@synthesize imagenObtenidaVista, botonEnviarVista, capturaView;
+@synthesize imagenObtenidaVista, botonEnviarVista, capturaView, toolBar;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -31,6 +31,7 @@
     botonEnviarVista.enabled = NO;
     self.capturaView.backgroundColor = [UIColor colorWithPatternImage:
                                  [UIImage imageNamed:@"micro_carbon"]];
+    [self.toolBar setBackgroundImage:[UIImage imageNamed:@"tabbar"] forToolbarPosition:UIToolbarPositionAny barMetrics:UIBarMetricsDefault];
 }
 
 - (void)didReceiveMemoryWarning

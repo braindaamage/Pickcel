@@ -10,6 +10,8 @@
 
 @interface ClientesCollectionViewController : UICollectionViewController <NSXMLParserDelegate>
 @property (strong, nonatomic) IBOutlet UICollectionView *vistaColeccion;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *indicadorCarga;
+
 - (IBAction)celdaBotonPulsar:(id)sender;
 
 @end
