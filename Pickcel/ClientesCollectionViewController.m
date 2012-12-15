@@ -14,6 +14,7 @@
     NSMutableArray *clientes;
     NSMutableDictionary *clienteActual;
     NSMutableString *currentNode;
+    NSOperationQueue *manejaHilo;
 }
 @end
 
@@ -47,10 +48,25 @@
     }
     
     [self.indicadorCarga startAnimating];
+    [self.progressBar setProgress:0.0];
+    [self.progressBar setHidden:NO];
     
     // Configuración para parseo de XML
     clientes = [[NSMutableArray alloc] init];
     
+    
+    // Cargar Datos en nuevo Hilo para no congelar aplicación
+    manejaHilo = [NSOperationQueue new];
+    NSInvocationOperation *operacion = [[NSInvocationOperation alloc] initWithTarget:self selector:@selector(parsearCLientes) object:nil];
+    
+    [manejaHilo addOperation:operacion];
+    
+}
+
+
+// Funciones NSXMLParseDelegate
+
+- (void) parsearCLientes {
     // Parseo archivo local
     //NSXMLParser *parseador = [[NSXMLParser alloc] initWithData:[NSData dataWithContentsOfFile:[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"feeds.xml"]]];
     // Parseo URL
@@ -61,20 +77,15 @@
     
     parseador.delegate = self;
     
-    NSOperationQueue *manejaHilo = [NSOperationQueue new];
-    NSInvocationOperation *operacion = [[NSInvocationOperation alloc] initWithTarget:parseador selector:@selector(parse) object:nil];
-    
-    [manejaHilo addOperation:operacion];
-    //[parseador parse];
+    [parseador parse];
 }
-
-
-// Funciones NSXMLParseDelegate
 
 - (void)parser:(NSXMLParser *)parser parseErrorOccurred:(NSError *)parseError {
     UIBarButtonItem *nuevoBoton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(obtenerClientes)];
     [self.navigationItem performSelectorOnMainThread:@selector(setRightBarButtonItem:) withObject:nuevoBoton waitUntilDone:YES];
     [self.indicadorCarga performSelectorOnMainThread:@selector(stopAnimating) withObject:nil waitUntilDone:YES];
+    [self performSelectorOnMainThread:@selector(ocultarBarra) withObject:nil waitUntilDone:YES];
+    NSLog(@"%@", parseError);
 }
 
 -(void) parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict {
@@ -90,7 +101,8 @@
     } else if ([elementName isEqualToString:@"descripcion"]) {
         [clienteActual setValue:currentNode forKey:@"descripcion"];
     } else if ([elementName isEqualToString:@"imagen"]) {
-        [clienteActual setValue:[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:currentNode]]] forKey:@"imagen"];
+        //[clienteActual setValue:[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:currentNode]]] forKey:@"imagen"];
+        [clienteActual setValue:currentNode forKey:@"imagen"];
     } else if ([elementName isEqualToString:@"cliente"]) {
         [clientes addObject:clienteActual];
     }
@@ -107,8 +119,46 @@
 }
 
 - (void)parserDidEndDocument:(NSXMLParser *)parser {
+    //[self.collectionView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:YES];
+    //[self.indicadorCarga performSelectorOnMainThread:@selector(stopAnimating) withObject:nil waitUntilDone:YES];
+    
+    [self cargarImagenes];
+}
+
+- (void)cargarImagenes {
+    NSInvocationOperation *operacion;
+    NSMutableArray *operaciones = [[NSMutableArray alloc] init];
+    for (NSInteger i = 0; i < [clientes count]; i++) {
+        NSNumber *indice = [NSNumber numberWithInteger:i];
+        operacion = [[NSInvocationOperation alloc] initWithTarget:self selector:@selector(cargaImagenInternet: ) object:indice];
+        [operaciones addObject:operacion];
+        //[manejaHilo addOperation:operacion];
+    }
+    
+    [manejaHilo addOperations:operaciones waitUntilFinished:YES];
+    
     [self.collectionView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:YES];
     [self.indicadorCarga performSelectorOnMainThread:@selector(stopAnimating) withObject:nil waitUntilDone:YES];
+    [self performSelectorOnMainThread:@selector(ocultarBarra) withObject:nil waitUntilDone:YES];
+}
+
+- (void) ocultarBarra {
+    [self.progressBar setHidden:YES];
+}
+
+- (void)cargaImagenInternet:(NSNumber *) indice {
+    NSMutableDictionary *itemActual = (NSMutableDictionary *) [clientes objectAtIndex:[indice integerValue]];
+    [itemActual setValue:[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[itemActual valueForKey:@"imagen"]]]] forKey:@"imagen"];
+    [clientes setObject:itemActual atIndexedSubscript:[indice integerValue]];
+    [self performSelectorOnMainThread:@selector(manejaBarraProgreso) withObject:nil waitUntilDone:YES];
+}
+
+- (void)manejaBarraProgreso {
+    float porcentaje = (float)1/[clientes count];
+    float actual = [self.progressBar progress];
+    float nuevo = actual + porcentaje;
+    
+    [self.progressBar setProgress:nuevo];
 }
 
 // Fin Funciones NSXMLParseDelegate

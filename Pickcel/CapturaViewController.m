@@ -126,7 +126,10 @@
         case 2:
             self.labelError.text = @"Tiempo de espera agotado.";
             break;
-            
+        case 4:
+            // Cancelado
+            self.labelError.text = @"";
+            break;
         default:
             error = [[NSString alloc] initWithFormat:@"Error desconocido (%i)", [[requestInstance error] code]];
             break;

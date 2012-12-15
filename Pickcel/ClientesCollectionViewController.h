@@ -11,6 +11,7 @@
 @interface ClientesCollectionViewController : UICollectionViewController <NSXMLParserDelegate>
 @property (strong, nonatomic) IBOutlet UICollectionView *vistaColeccion;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *indicadorCarga;
+@property (weak, nonatomic) IBOutlet UIProgressView *progressBar;
 
 - (IBAction)celdaBotonPulsar:(id)sender;
 
