@@ -56,11 +56,78 @@
 }
 
 - (IBAction)botonEnviar:(id)sender {
-    //ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:[NSURL URLWithString:@"http://www.reframe.cl/pickcel/sube.php"]];
-    //[request setPostValue:@"Copsey" forKey:@"last_name"];
-    //[request setFile:@"/Users/ben/Desktop/ben.jpg" forKey:@"photo"];
     
-    [self uploadFile];
+    //[self uploadFile];
+    
+    ACAccountStore *accountStore = [[ACAccountStore alloc] init];
+    ACAccountType *facebookAccountType = [accountStore accountTypeWithAccountTypeIdentifier:ACAccountTypeIdentifierFacebook];
+    
+    // We will pass this dictionary in the next method. It should contain your Facebook App ID key,
+    // permissions and (optionally) the ACFacebookAudienceKey
+    // @"publish_stream"
+    NSDictionary *options = @{ACFacebookAppIdKey : @"442688539131546",
+    ACFacebookPermissionsKey : @[@"email"],
+    ACFacebookAudienceKey:ACFacebookAudienceOnlyMe};
+    
+    // Request access to the Facebook account.
+    // The user will see an alert view when you perform this method.
+    [accountStore requestAccessToAccountsWithType:facebookAccountType
+                                           options:options
+                                        completion:^(BOOL granted, NSError *error) {
+                                            if (granted)
+                                            {
+                                                NSDictionary *options2 = @{ACFacebookAppIdKey : @"442688539131546",
+                                                ACFacebookPermissionsKey : @[@"publish_stream"],
+                                                ACFacebookAudienceKey:ACFacebookAudienceOnlyMe};
+                                                [accountStore requestAccessToAccountsWithType:facebookAccountType options:options2 completion:^(BOOL granted, NSError *error) {
+                                                    
+                                                    if (granted) {
+                                                        // At this point we can assume that we have access to the Facebook account
+                                                        NSArray *accounts = [accountStore accountsWithAccountType:facebookAccountType];
+                                                        
+                                                        // Optionally save the account
+                                                        [accountStore saveAccount:[accounts lastObject] withCompletionHandler:nil];
+                                                        
+                                                        
+                                                        
+                                                        // Post
+                                                        ACAccount *account = [accounts lastObject];
+                                                        
+                                                        // Create the parameters dictionary and the URL (!use HTTPS!)
+                                                        NSDictionary *parameters = @{@"message" : @"Prueba iOS", @"link": @"http://www.apple.com"};
+                                                        NSURL *URL = [NSURL URLWithString:@"https://graph.facebook.com/me/feed"];
+                                                        
+                                                        // Create request
+                                                        SLRequest *requestLocal = [SLRequest requestForServiceType:SLServiceTypeFacebook
+                                                                                                requestMethod:SLRequestMethodPOST
+                                                                                                          URL:URL
+                                                                                                   parameters:parameters];
+                                                        
+                                                        // Since we are performing a method that requires authorization we can simply
+                                                        // add the ACAccount to the SLRequest
+                                                        [requestLocal setAccount:account];
+                                                        
+                                                        // Perform request
+                                                        [requestLocal performRequestWithHandler:^(NSData *respData, NSHTTPURLResponse *urlResp, NSError *error) {
+                                                            NSDictionary *responseDictionary = [NSJSONSerialization JSONObjectWithData:respData 
+                                                                                                                               options:kNilOptions 
+                                                                                                                                 error:&error];
+                                                            
+                                                            // Check for errors in the responseDictionary
+                                                            NSLog(@"%@", responseDictionary);
+                                                        }];
+                                                    } else {
+                                                        NSLog(@"Failed to grant access weite\n%@", error);
+                                                    }
+                                                }];
+                                                
+                                                
+                                            }
+                                            else
+                                            {
+                                                NSLog(@"Failed to grant access read\n%@", error);
+                                            }
+                                        }];
 }
 
 -(void)uploadFile{

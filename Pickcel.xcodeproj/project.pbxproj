@@ -28,6 +28,8 @@
 		A75884A916766CC5007C0026 /* feeds.xml in Resources */ = {isa = PBXBuildFile; fileRef = A75884A816766CC5007C0026 /* feeds.xml */; };
 		A75884AC1676851E007C0026 /* ObtenerDescuentoNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A75884AB1676851D007C0026 /* ObtenerDescuentoNavigationViewController.m */; };
 		A75884AF16768741007C0026 /* CapturaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A75884AE16768741007C0026 /* CapturaViewController.m */; };
+		A76447D41680FB9B008116C0 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A76447D31680FB9B008116C0 /* Social.framework */; };
+		A76447D61680FBA1008116C0 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A76447D51680FBA1008116C0 /* Accounts.framework */; };
 		A7752E0F167817DF000CD7C8 /* BlurOverlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = A7752DC0167817DE000CD7C8 /* BlurOverlayView.m */; };
 		A7752E10167817DF000CD7C8 /* DLCImagePickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7752DC2167817DE000CD7C8 /* DLCImagePickerController.m */; };
 		A7752E11167817DF000CD7C8 /* GrayscaleContrastFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = A7752DC4167817DE000CD7C8 /* GrayscaleContrastFilter.m */; };
@@ -176,6 +178,8 @@
 		A75884AB1676851D007C0026 /* ObtenerDescuentoNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObtenerDescuentoNavigationViewController.m; sourceTree = "<group>"; };
 		A75884AD16768741007C0026 /* CapturaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CapturaViewController.h; sourceTree = "<group>"; };
 		A75884AE16768741007C0026 /* CapturaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CapturaViewController.m; sourceTree = "<group>"; };
+		A76447D31680FB9B008116C0 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		A76447D51680FBA1008116C0 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		A7752DBF167817DE000CD7C8 /* BlurOverlayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlurOverlayView.h; sourceTree = "<group>"; };
 		A7752DC0167817DE000CD7C8 /* BlurOverlayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlurOverlayView.m; sourceTree = "<group>"; };
 		A7752DC1167817DE000CD7C8 /* DLCImagePickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLCImagePickerController.h; sourceTree = "<group>"; };
@@ -290,6 +294,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A76447D61680FBA1008116C0 /* Accounts.framework in Frameworks */,
+				A76447D41680FB9B008116C0 /* Social.framework in Frameworks */,
 				A7C2B405167A2E2D00D33C35 /* libz.dylib in Frameworks */,
 				A741D8611675388600CCA065 /* CoreGraphics.framework in Frameworks */,
 				A7C2B403167A2E1300D33C35 /* MobileCoreServices.framework in Frameworks */,
@@ -329,6 +335,8 @@
 		A741D85B1675388600CCA065 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A76447D51680FBA1008116C0 /* Accounts.framework */,
+				A76447D31680FB9B008116C0 /* Social.framework */,
 				A7C2B404167A2E2D00D33C35 /* libz.dylib */,
 				A7C2B402167A2E1300D33C35 /* MobileCoreServices.framework */,
 				A7C2B400167A2E0900D33C35 /* SystemConfiguration.framework */,
