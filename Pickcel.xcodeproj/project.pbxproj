@@ -101,6 +101,9 @@
 		A7904E251677855100FE09E0 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = A7904E241677855100FE09E0 /* Icon.png */; };
 		A7904E271677855400FE09E0 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A7904E261677855400FE09E0 /* Icon@2x.png */; };
 		A796F8B71677FB070075C0D0 /* libGPUImage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A796F8B21677FAEF0075C0D0 /* libGPUImage.a */; };
+		A797E4B51682549C00664E9A /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A797E4B31682549C00664E9A /* LoginViewController.m */; };
+		A797E4B61682549C00664E9A /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A797E4B41682549C00664E9A /* LoginViewController.xib */; };
+		A797E4B91682674400664E9A /* InfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A797E4B81682674400664E9A /* InfoViewController.m */; };
 		A7C2B3F5167A2DC700D33C35 /* ASIAuthenticationDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = A7C2B3E0167A2DC700D33C35 /* ASIAuthenticationDialog.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		A7C2B3F6167A2DC700D33C35 /* ASIDataCompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = A7C2B3E3167A2DC700D33C35 /* ASIDataCompressor.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		A7C2B3F7167A2DC700D33C35 /* ASIDataDecompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = A7C2B3E5167A2DC700D33C35 /* ASIDataDecompressor.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -254,6 +257,11 @@
 		A7904E241677855100FE09E0 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon.png; path = ../Icon.png; sourceTree = "<group>"; };
 		A7904E261677855400FE09E0 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon@2x.png"; path = "../Icon@2x.png"; sourceTree = "<group>"; };
 		A796F8A81677FAEF0075C0D0 /* GPUImage.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = GPUImage.xcodeproj; path = Submodulos/GPUImage/framework/GPUImage.xcodeproj; sourceTree = "<group>"; };
+		A797E4B21682549C00664E9A /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		A797E4B31682549C00664E9A /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		A797E4B41682549C00664E9A /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		A797E4B71682674400664E9A /* InfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoViewController.h; sourceTree = "<group>"; };
+		A797E4B81682674400664E9A /* InfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoViewController.m; sourceTree = "<group>"; };
 		A7C2B3DF167A2DC700D33C35 /* ASIAuthenticationDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIAuthenticationDialog.h; sourceTree = "<group>"; };
 		A7C2B3E0167A2DC700D33C35 /* ASIAuthenticationDialog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIAuthenticationDialog.m; sourceTree = "<group>"; };
 		A7C2B3E1167A2DC700D33C35 /* ASICacheDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASICacheDelegate.h; sourceTree = "<group>"; };
@@ -357,6 +365,7 @@
 		A741D8621675388600CCA065 /* Pickcel */ = {
 			isa = PBXGroup;
 			children = (
+				A797E4B11682535C00664E9A /* Login */,
 				A7C2B3DE167A2DC700D33C35 /* ASIHTTPRequest */,
 				A7752DBD167817DE000CD7C8 /* DLCImagePickerController */,
 				A75884A3167668DE007C0026 /* xml */,
@@ -558,6 +567,16 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		A797E4B11682535C00664E9A /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				A797E4B21682549C00664E9A /* LoginViewController.h */,
+				A797E4B31682549C00664E9A /* LoginViewController.m */,
+				A797E4B41682549C00664E9A /* LoginViewController.xib */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
 		A7C2B3DE167A2DC700D33C35 /* ASIHTTPRequest */ = {
 			isa = PBXGroup;
 			children = (
@@ -600,6 +619,8 @@
 				A741D8801675434400CCA065 /* ClientesCollectionViewController.m */,
 				A75884AA1676851D007C0026 /* ObtenerDescuentoNavigationViewController.h */,
 				A75884AB1676851D007C0026 /* ObtenerDescuentoNavigationViewController.m */,
+				A797E4B71682674400664E9A /* InfoViewController.h */,
+				A797E4B81682674400664E9A /* InfoViewController.m */,
 			);
 			name = Controladores;
 			sourceTree = "<group>";
@@ -767,6 +788,7 @@
 				A7752E51167817DF000CD7C8 /* crossprocess.acv in Resources */,
 				A7752E52167817DF000CD7C8 /* purple-green.acv in Resources */,
 				A7752E53167817DF000CD7C8 /* yellow-red.acv in Resources */,
+				A797E4B61682549C00664E9A /* LoginViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -798,6 +820,8 @@
 				A7C2B3FB167A2DC700D33C35 /* ASIInputStream.m in Sources */,
 				A7C2B3FC167A2DC700D33C35 /* ASINetworkQueue.m in Sources */,
 				A7C2B3FD167A2DC700D33C35 /* Reachability.m in Sources */,
+				A797E4B51682549C00664E9A /* LoginViewController.m in Sources */,
+				A797E4B91682674400664E9A /* InfoViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

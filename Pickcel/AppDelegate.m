@@ -7,21 +7,47 @@
 //
 
 #import "AppDelegate.h"
+#import "LoginViewController.h"
+#import "TabBarViewController.h"
+
+@interface AppDelegate ()
+
+@property (strong, nonatomic) TabBarViewController *mainController;
+@property (strong, nonatomic) LoginViewController* login;
+
+@end
 
 @implementation AppDelegate
+
+@synthesize window = _window;
+@synthesize mainController = _mainController;
+@synthesize login = _login;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
     [self customizeInterface];
-    NSLog(@"%c", [self verificarCuenta]);
+    
+    UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+    
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    self.mainController = (TabBarViewController *) [mainStoryboard instantiateViewControllerWithIdentifier:@"tabBarID"];
+    self.window.rootViewController = self.mainController;
+    
+    [self.window makeKeyAndVisible];
+    
+    if (![self verificarCuenta]) {
+        self.login = [[LoginViewController alloc] init];
+        [self.mainController presentViewController:self.login animated:NO completion:nil];
+    }
+    
+    
     return YES;
 }
 
 - (BOOL) verificarCuenta {
     ACAccountStore *accountStore = [[ACAccountStore alloc] init];
     NSArray *accounts = [accountStore accounts];
-    
     if ([accounts count] > 0) {
         return YES;
     } else {
