@@ -67,8 +67,9 @@
     // @"publish_stream"
     NSDictionary *options = @{ACFacebookAppIdKey : @"442688539131546",
     ACFacebookPermissionsKey : @[@"email"],
-    ACFacebookAudienceKey:ACFacebookAudienceOnlyMe};
+    ACFacebookAudienceKey:ACFacebookAudienceFriends};
     
+    NSLog(@"1");
     // Request access to the Facebook account.
     // The user will see an alert view when you perform this method.
     [accountStore requestAccessToAccountsWithType:facebookAccountType
@@ -76,12 +77,14 @@
                                         completion:^(BOOL granted, NSError *error) {
                                             if (granted)
                                             {
+                                                NSLog(@"2");
                                                 NSDictionary *options2 = @{ACFacebookAppIdKey : @"442688539131546",
                                                 ACFacebookPermissionsKey : @[@"publish_stream"],
-                                                ACFacebookAudienceKey:ACFacebookAudienceOnlyMe};
+                                                ACFacebookAudienceKey:ACFacebookAudienceFriends};
                                                 [accountStore requestAccessToAccountsWithType:facebookAccountType options:options2 completion:^(BOOL granted, NSError *error) {
                                                     
                                                     if (granted) {
+                                                        NSLog(@"3");
                                                         // At this point we can assume that we have access to the Facebook account
                                                         NSArray *accounts = [accountStore accountsWithAccountType:facebookAccountType];
                                                         
@@ -92,30 +95,32 @@
                                                         
                                                         // Post
                                                         ACAccount *account = [accounts lastObject];
+                                                        NSLog(@"%@", account);
                                                         
                                                         // Create the parameters dictionary and the URL (!use HTTPS!)
-                                                        NSDictionary *parameters = @{@"message" : @"Prueba iOS", @"link": @"http://www.apple.com"};
-                                                        NSURL *URL = [NSURL URLWithString:@"https://graph.facebook.com/me/feed"];
+                                                        NSDictionary *parameters = @{@"message" : @"Prueba upload foto desde Pickcel"};
+                                                        NSURL *URL = [NSURL URLWithString:@"https://graph.facebook.com/me/photos"];
                                                         
                                                         // Create request
                                                         SLRequest *requestLocal = [SLRequest requestForServiceType:SLServiceTypeFacebook
                                                                                                 requestMethod:SLRequestMethodPOST
                                                                                                           URL:URL
                                                                                                    parameters:parameters];
+                                                        [requestLocal addMultipartData:imagenCapturada withName:@"Pickcel" type:@"image/jpeg" filename:nil];
                                                         
                                                         // Since we are performing a method that requires authorization we can simply
                                                         // add the ACAccount to the SLRequest
                                                         [requestLocal setAccount:account];
                                                         
                                                         // Perform request
-                                                        [requestLocal performRequestWithHandler:^(NSData *respData, NSHTTPURLResponse *urlResp, NSError *error) {
+                                                        /*[requestLocal performRequestWithHandler:^(NSData *respData, NSHTTPURLResponse *urlResp, NSError *error) {
                                                             NSDictionary *responseDictionary = [NSJSONSerialization JSONObjectWithData:respData 
                                                                                                                                options:kNilOptions 
                                                                                                                                  error:&error];
                                                             
                                                             // Check for errors in the responseDictionary
                                                             NSLog(@"%@", responseDictionary);
-                                                        }];
+                                                        }];*/
                                                     } else {
                                                         NSLog(@"Failed to grant access weite\n%@", error);
                                                     }

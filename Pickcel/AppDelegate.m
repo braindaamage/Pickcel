@@ -14,7 +14,20 @@
 {
     // Override point for customization after application launch.
     [self customizeInterface];
+    NSLog(@"%c", [self verificarCuenta]);
     return YES;
+}
+
+- (BOOL) verificarCuenta {
+    ACAccountStore *accountStore = [[ACAccountStore alloc] init];
+    NSArray *accounts = [accountStore accounts];
+    
+    if ([accounts count] > 0) {
+        return YES;
+    } else {
+        return NO;
+    }
+    
 }
 							
 - (void)applicationWillResignActive:(UIApplication *)application
