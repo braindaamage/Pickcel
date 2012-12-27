@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <Accounts/Accounts.h>
 #import <Social/Social.h>
+#import "AppDelegate.h"
 
 @interface InfoViewController : UIViewController
 - (IBAction)logoutFacebook:(id)sender;

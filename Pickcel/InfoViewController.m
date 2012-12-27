@@ -37,19 +37,10 @@
 
 - (IBAction)logoutFacebook:(id)sender {
     
-    ACAccountStore *accountStore = [[ACAccountStore alloc] init];
-    ACAccountType *facebookAccountType = [accountStore accountTypeWithAccountTypeIdentifier:ACAccountTypeIdentifierFacebook];
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    // The user has initiated a login, so call the openSession method
+    // and show the login UX if necessary.
+    [appDelegate closeSession];
     
-    NSArray *accounts = [accountStore accountsWithAccountType:facebookAccountType];
-    
-    ACAccount *account = [accounts lastObject];
-    
-    [accountStore removeAccount:account withCompletionHandler:^(BOOL success, NSError *error) {
-        if (success) {
-            NSLog(@"Deslogeo OK");
-        } else {
-            NSLog(@"Error: %@", [error localizedDescription]);
-        }
-    }];
 }
 @end

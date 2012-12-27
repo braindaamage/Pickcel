@@ -38,38 +38,12 @@
 
 - (IBAction)loginFacebook:(id)sender {
     
-    ACAccountStore *accountStore = [[ACAccountStore alloc] init];
-    ACAccountType *facebookAccountType = [accountStore accountTypeWithAccountTypeIdentifier:ACAccountTypeIdentifierFacebook];
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    // The user has initiated a login, so call the openSession method
+    // and show the login UX if necessary.
+    [appDelegate openSessionWithAllowLoginUI:YES];
     
-    NSDictionary *options = @{ACFacebookAppIdKey : @"442688539131546",
-    ACFacebookPermissionsKey : @[@"email"],
-    ACFacebookAudienceKey:ACFacebookAudienceFriends};
     
-    [accountStore requestAccessToAccountsWithType:facebookAccountType
-                                          options:options
-                                       completion:^(BOOL granted, NSError *error)
-     {
-         if (granted) {
-             // At this point we can assume that we have access to the Facebook account
-             NSArray *accounts = [accountStore accountsWithAccountType:facebookAccountType];
-             
-             // Optionally save the account
-             [accountStore saveAccount:[accounts lastObject] withCompletionHandler:nil];
-             
-             [self dismissViewControllerAnimated:YES completion:nil];
-         } else {
-             NSString *mensaje = [[NSString alloc] initWithFormat:@"%@", [error localizedDescription]];
-             NSLog(@"%@", mensaje);
-             
-             UIAlertView *alerta = [[UIAlertView alloc] initWithTitle:@"ERROR"
-                                                              message:mensaje
-                                                             delegate:self
-                                                    cancelButtonTitle:@"OK"
-                                                    otherButtonTitles:nil];
-             
-             [alerta show];
-         }
-     }];
 }
 
 - (IBAction)loginTwitter:(id)sender {
