@@ -12,5 +12,6 @@
 
 @interface LoginViewController : UIViewController
 - (IBAction)loginFacebook:(id)sender;
+- (IBAction)loginTwitter:(id)sender;
 
 @end
