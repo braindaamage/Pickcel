@@ -114,7 +114,7 @@ NSString *const FBSessionStateChangedNotification = @"cl.reframe.Pickcel:FBSessi
         case FBSessionStateOpen:
             if (!error) {
                 // We have a valid session
-                NSLog(@"User session found");
+                //NSLog(@"User session found");
                 if (self.login != nil) {
                     [self.login dismissViewControllerAnimated:YES completion:nil];
                     self.login = nil;
