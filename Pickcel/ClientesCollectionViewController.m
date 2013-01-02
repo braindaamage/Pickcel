@@ -71,7 +71,9 @@
     //NSXMLParser *parseador = [[NSXMLParser alloc] initWithData:[NSData dataWithContentsOfFile:[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"feeds.xml"]]];
     // Parseo URL
     
-    NSURL *url = [NSURL URLWithString:@"http://www.reframe.cl/pickcel/feeds.xml"];
+    //NSURL *url = [NSURL URLWithString:@"http://www.reframe.cl/pickcel/feeds.xml"];
+    
+    NSURL *url = [NSURL URLWithString:@"http://pickcel.cl/admin/marcasiphone.php"];
     
     NSXMLParser *parseador = [[NSXMLParser alloc] initWithContentsOfURL:url];
     
@@ -89,21 +91,23 @@
 }
 
 -(void) parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict {
-    if([elementName isEqualToString:@"cliente"]) {
+    if([elementName isEqualToString:@"marca"]) {
         clienteActual = [[NSMutableDictionary alloc] init];
         currentNode = [[NSMutableString alloc] init];
     }
 }
 
 -(void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName {
-    if ([elementName isEqualToString:@"titulo"]) {
-        [clienteActual setValue:currentNode forKey:@"titulo"];
-    } else if ([elementName isEqualToString:@"descripcion"]) {
-        [clienteActual setValue:currentNode forKey:@"descripcion"];
-    } else if ([elementName isEqualToString:@"imagen"]) {
+    NSString *currentNew = [currentNode stringByReplacingOccurrencesOfString:@"\n\t\t"
+                                                         withString:@""];
+    if ([elementName isEqualToString:@"nombre"]) {
+        [clienteActual setValue:currentNew forKey:@"nombre"];
+    } else if ([elementName isEqualToString:@"id"]) {
+        [clienteActual setValue:currentNew forKey:@"id"];
+    } else if ([elementName isEqualToString:@"icono"]) {
         //[clienteActual setValue:[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:currentNode]]] forKey:@"imagen"];
-        [clienteActual setValue:currentNode forKey:@"imagen"];
-    } else if ([elementName isEqualToString:@"cliente"]) {
+        [clienteActual setValue:currentNew forKey:@"imagen"];
+    } else if ([elementName isEqualToString:@"marca"]) {
         [clientes addObject:clienteActual];
     }
     

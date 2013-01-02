@@ -28,7 +28,8 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    self.navigationBar.topItem.title = [cliente valueForKey:@"titulo"];
+    self.navigationBar.topItem.title = [cliente valueForKey:@"nombre"];
+    
 }
 
 - (void)didReceiveMemoryWarning

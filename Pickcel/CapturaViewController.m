@@ -8,6 +8,7 @@
 
 #import "CapturaViewController.h"
 #import "ASIFormDataRequest.h"
+#import "ObtenerDescuentoNavigationViewController.h";
 
 @interface CapturaViewController () {
     NSData *imagenCapturada;
@@ -57,8 +58,13 @@
 
 - (IBAction)botonEnviar:(id)sender {
     
-    //[self uploadFile];
+    [self uploadFile];
     
+    //[self publicarEnFacebook];
+    
+}
+
+- (void)publicarEnFacebook {
     ACAccountStore *accountStore = [[ACAccountStore alloc] init];
     ACAccountType *facebookAccountType = [accountStore accountTypeWithAccountTypeIdentifier:ACAccountTypeIdentifierFacebook];
     
@@ -73,70 +79,73 @@
     // Request access to the Facebook account.
     // The user will see an alert view when you perform this method.
     [accountStore requestAccessToAccountsWithType:facebookAccountType
-                                           options:options
-                                        completion:^(BOOL granted, NSError *error) {
-                                            if (granted)
-                                            {
-                                                NSLog(@"2");
-                                                NSDictionary *options2 = @{ACFacebookAppIdKey : @"442688539131546",
-                                                ACFacebookPermissionsKey : @[@"publish_stream"],
-                                                ACFacebookAudienceKey:ACFacebookAudienceFriends};
-                                                [accountStore requestAccessToAccountsWithType:facebookAccountType options:options2 completion:^(BOOL granted, NSError *error) {
-                                                    
-                                                    if (granted) {
-                                                        NSLog(@"3");
-                                                        // At this point we can assume that we have access to the Facebook account
-                                                        NSArray *accounts = [accountStore accountsWithAccountType:facebookAccountType];
+                                          options:options
+                                       completion:^(BOOL granted, NSError *error) {
+                                           if (granted)
+                                           {
+                                               NSLog(@"2");
+                                               NSDictionary *options2 = @{ACFacebookAppIdKey : @"442688539131546",
+                                               ACFacebookPermissionsKey : @[@"publish_stream"],
+                                           ACFacebookAudienceKey:ACFacebookAudienceFriends};
+                                               [accountStore requestAccessToAccountsWithType:facebookAccountType options:options2 completion:^(BOOL granted, NSError *error) {
+                                                   
+                                                   if (granted) {
+                                                       NSLog(@"3");
+                                                       // At this point we can assume that we have access to the Facebook account
+                                                       NSArray *accounts = [accountStore accountsWithAccountType:facebookAccountType];
+                                                       
+                                                       // Optionally save the account
+                                                       [accountStore saveAccount:[accounts lastObject] withCompletionHandler:nil];
+                                                       
+                                                       
+                                                       
+                                                       // Post
+                                                       ACAccount *account = [accounts lastObject];
+                                                       NSLog(@"%@", account);
+                                                       
+                                                       // Create the parameters dictionary and the URL (!use HTTPS!)
+                                                       NSDictionary *parameters = @{@"message" : @"Prueba upload foto desde Pickcel"};
+                                                       NSURL *URL = [NSURL URLWithString:@"https://graph.facebook.com/me/photos"];
+                                                       
+                                                       // Create request
+                                                       SLRequest *requestLocal = [SLRequest requestForServiceType:SLServiceTypeFacebook
+                                                                                                    requestMethod:SLRequestMethodPOST
+                                                                                                              URL:URL
+                                                                                                       parameters:parameters];
+                                                       [requestLocal addMultipartData:imagenCapturada withName:@"Pickcel" type:@"image/jpeg" filename:nil];
+                                                       
+                                                       // Since we are performing a method that requires authorization we can simply
+                                                       // add the ACAccount to the SLRequest
+                                                       [requestLocal setAccount:account];
+                                                       
+                                                       // Perform request
+                                                       /*[requestLocal performRequestWithHandler:^(NSData *respData, NSHTTPURLResponse *urlResp, NSError *error) {
+                                                        NSDictionary *responseDictionary = [NSJSONSerialization JSONObjectWithData:respData
+                                                        options:kNilOptions
+                                                        error:&error];
                                                         
-                                                        // Optionally save the account
-                                                        [accountStore saveAccount:[accounts lastObject] withCompletionHandler:nil];
-                                                        
-                                                        
-                                                        
-                                                        // Post
-                                                        ACAccount *account = [accounts lastObject];
-                                                        NSLog(@"%@", account);
-                                                        
-                                                        // Create the parameters dictionary and the URL (!use HTTPS!)
-                                                        NSDictionary *parameters = @{@"message" : @"Prueba upload foto desde Pickcel"};
-                                                        NSURL *URL = [NSURL URLWithString:@"https://graph.facebook.com/me/photos"];
-                                                        
-                                                        // Create request
-                                                        SLRequest *requestLocal = [SLRequest requestForServiceType:SLServiceTypeFacebook
-                                                                                                requestMethod:SLRequestMethodPOST
-                                                                                                          URL:URL
-                                                                                                   parameters:parameters];
-                                                        [requestLocal addMultipartData:imagenCapturada withName:@"Pickcel" type:@"image/jpeg" filename:nil];
-                                                        
-                                                        // Since we are performing a method that requires authorization we can simply
-                                                        // add the ACAccount to the SLRequest
-                                                        [requestLocal setAccount:account];
-                                                        
-                                                        // Perform request
-                                                        /*[requestLocal performRequestWithHandler:^(NSData *respData, NSHTTPURLResponse *urlResp, NSError *error) {
-                                                            NSDictionary *responseDictionary = [NSJSONSerialization JSONObjectWithData:respData 
-                                                                                                                               options:kNilOptions 
-                                                                                                                                 error:&error];
-                                                            
-                                                            // Check for errors in the responseDictionary
-                                                            NSLog(@"%@", responseDictionary);
+                                                        // Check for errors in the responseDictionary
+                                                        NSLog(@"%@", responseDictionary);
                                                         }];*/
-                                                    } else {
-                                                        NSLog(@"Failed to grant access weite\n%@", error);
-                                                    }
-                                                }];
-                                                
-                                                
-                                            }
-                                            else
-                                            {
-                                                NSLog(@"Failed to grant access read\n%@", error);
-                                            }
-                                        }];
+                                                   } else {
+                                                       NSLog(@"Failed to grant access weite\n%@", error);
+                                                   }
+                                               }];
+                                               
+                                               
+                                           }
+                                           else
+                                           {
+                                               NSLog(@"Failed to grant access read\n%@", error);
+                                           }
+                                       }];
+
 }
 
 -(void)uploadFile{
-    NSURL *url = [NSURL URLWithString: @"http://www.reframe.cl/pickcel/sube.php"];
+    //NSURL *url = [NSURL URLWithString: @"http://www.reframe.cl/pickcel/sube.php"];
+    
+    NSURL *url = [NSURL URLWithString: @"http://www.pickcel.cl/admin/procesar.php"];
     
     request = [ASIFormDataRequest requestWithURL:url];
     
@@ -146,12 +155,18 @@
     //[request setUsername:@"login"];
     //[request setPassword:@"password"];
     
-    [request setPostValue:@"imagen" forKey:@"nombre_imagen"];
+    NSString *dispositivo = [[NSString alloc] initWithFormat:@"%@ - iOS %@", [[UIDevice currentDevice] localizedModel], [[UIDevice currentDevice] systemVersion]];
+    ObtenerDescuentoNavigationViewController *navigation = (ObtenerDescuentoNavigationViewController *) self.navigationController;
+    
+    
+    [request setPostValue:[navigation.cliente valueForKey:@"id"] forKey:@"marca"];
+    [request setPostValue:@"leo@reframe.cl" forKey:@"email"];
+    [request setPostValue:dispositivo forKey:@"dispositivo"];
     
     // Upload an image
     //NSData *imageData = UIImageJPEGRepresentation([UIImage imageName:fileName])
     //NSData *imageData = UIImageJPEGRepresentation(imagenCapturada, 9);
-    [request setData:imagenCapturada withFileName:@"file" andContentType:@"image/jpeg" forKey:@"file"];
+    [request setData:imagenCapturada withFileName:@"imagen" andContentType:@"image/jpeg" forKey:@"imagen"];
     
     [request setDelegate:self];
     [request setUploadProgressDelegate:progressBar];
@@ -181,8 +196,13 @@
 }
 
 - (void)uploadRequestFinished:(ASIHTTPRequest *)requestInstance{
-    NSString *responseString = [requestInstance responseString];
-    NSLog(@"Upload response %@", responseString);
+    NSData *responseData = [requestInstance responseData];
+    UIImage *imagenRespuesta = [UIImage imageWithData:responseData];
+    
+    NSLog(@"%@", imagenRespuesta);
+    
+    [imagenObtenidaVista setImage:[UIImage imageWithData:responseData]];
+    
     [self.progressBar setHidden:YES];
     [self.botonCancelarUploadVista setHidden:YES];
     [self.botonEnviarVista setEnabled:YES];

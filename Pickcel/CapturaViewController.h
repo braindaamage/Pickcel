@@ -12,6 +12,8 @@
 #import "DLCImagePickerController.h"
 
 @interface CapturaViewController : UIViewController <DLCImagePickerDelegate>
+@property (weak, nonatomic) NSMutableDictionary *cliente;
+
 @property (weak, nonatomic) IBOutlet UIImageView *imagenObtenidaVista;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *botonEnviarVista;
 @property (strong, nonatomic) IBOutlet UIView *capturaView;
