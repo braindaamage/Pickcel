@@ -8,7 +8,8 @@
 
 #import "CapturaViewController.h"
 #import "ASIFormDataRequest.h"
-#import "ObtenerDescuentoNavigationViewController.h";
+#import "ObtenerDescuentoNavigationViewController.h"
+#import "DescuentoViewController.h"
 
 @interface CapturaViewController () {
     NSData *imagenCapturada;
@@ -196,17 +197,31 @@
 }
 
 - (void)uploadRequestFinished:(ASIHTTPRequest *)requestInstance{
-    NSData *responseData = [requestInstance responseData];
-    UIImage *imagenRespuesta = [UIImage imageWithData:responseData];
-    
-    NSLog(@"%@", imagenRespuesta);
-    
-    [imagenObtenidaVista setImage:[UIImage imageWithData:responseData]];
+    NSString *respuesta = [[requestInstance responseHeaders] objectForKey:@"Content-Type"];
     
     [self.progressBar setHidden:YES];
     [self.botonCancelarUploadVista setHidden:YES];
     [self.botonEnviarVista setEnabled:YES];
     [self.botonCamara setEnabled:YES];
+    
+    if ([respuesta isEqualToString:@"image/jpg"]) {
+        NSData *responseData = [requestInstance responseData];
+        UIImage *imagenRespuesta = [[UIImage alloc] initWithData:responseData];
+        
+        DescuentoViewController *descuento = [self.storyboard instantiateViewControllerWithIdentifier:@"DescuentoCID"];
+        [descuento cargarImagen:imagenRespuesta];
+        [descuento setTitle:@"Descuento!"];
+        
+        [self.navigationController pushViewController:descuento animated:YES];
+    } else {
+        UIAlertView *error = [[UIAlertView alloc] initWithTitle:@"ERROR"
+                                                        message:@"Ocurrio un error al obtener el descuento, intentalo más tarde"
+                                                       delegate:self
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        
+        [error show];
+    }
 }
 
 - (void)uploadRequestFailed:(ASIHTTPRequest *)requestInstance{

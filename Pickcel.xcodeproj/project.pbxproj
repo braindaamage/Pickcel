@@ -120,6 +120,7 @@
 		A7C2B401167A2E0900D33C35 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7C2B400167A2E0900D33C35 /* SystemConfiguration.framework */; };
 		A7C2B403167A2E1300D33C35 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7C2B402167A2E1300D33C35 /* MobileCoreServices.framework */; };
 		A7C2B405167A2E2D00D33C35 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A7C2B404167A2E2D00D33C35 /* libz.dylib */; };
+		A7D12AD61694D0DD00A86E4A /* DescuentoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7D12AD51694D0DD00A86E4A /* DescuentoViewController.m */; };
 		A7D243581676268000FE32C3 /* CustomNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = A7D243571676268000FE32C3 /* CustomNavigationBar.m */; };
 		A7ED13351677D5F300929E1F /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7ED13341677D5F300929E1F /* CoreMedia.framework */; };
 		A7ED13371677D5F900929E1F /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7ED13361677D5F900929E1F /* CoreVideo.framework */; };
@@ -294,6 +295,8 @@
 		A7C2B400167A2E0900D33C35 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		A7C2B402167A2E1300D33C35 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		A7C2B404167A2E2D00D33C35 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		A7D12AD41694D0DD00A86E4A /* DescuentoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DescuentoViewController.h; sourceTree = "<group>"; };
+		A7D12AD51694D0DD00A86E4A /* DescuentoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DescuentoViewController.m; sourceTree = "<group>"; };
 		A7D243561676268000FE32C3 /* CustomNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomNavigationBar.h; sourceTree = "<group>"; };
 		A7D243571676268000FE32C3 /* CustomNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomNavigationBar.m; sourceTree = "<group>"; };
 		A7ED13341677D5F300929E1F /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
@@ -632,6 +635,8 @@
 				A75884AB1676851D007C0026 /* ObtenerDescuentoNavigationViewController.m */,
 				A797E4B71682674400664E9A /* InfoViewController.h */,
 				A797E4B81682674400664E9A /* InfoViewController.m */,
+				A7D12AD41694D0DD00A86E4A /* DescuentoViewController.h */,
+				A7D12AD51694D0DD00A86E4A /* DescuentoViewController.m */,
 			);
 			name = Controladores;
 			sourceTree = "<group>";
@@ -834,6 +839,7 @@
 				A7C2B3FD167A2DC700D33C35 /* Reachability.m in Sources */,
 				A797E4B51682549C00664E9A /* LoginViewController.m in Sources */,
 				A797E4B91682674400664E9A /* InfoViewController.m in Sources */,
+				A7D12AD61694D0DD00A86E4A /* DescuentoViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
