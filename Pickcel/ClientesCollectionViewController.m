@@ -87,7 +87,6 @@
     [self.navigationItem performSelectorOnMainThread:@selector(setRightBarButtonItem:) withObject:nuevoBoton waitUntilDone:YES];
     [self.indicadorCarga performSelectorOnMainThread:@selector(stopAnimating) withObject:nil waitUntilDone:YES];
     [self performSelectorOnMainThread:@selector(ocultarBarra) withObject:nil waitUntilDone:YES];
-    NSLog(@"%@", parseError);
 }
 
 -(void) parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict {

@@ -159,9 +159,12 @@
     NSString *dispositivo = [[NSString alloc] initWithFormat:@"%@ - iOS %@", [[UIDevice currentDevice] localizedModel], [[UIDevice currentDevice] systemVersion]];
     ObtenerDescuentoNavigationViewController *navigation = (ObtenerDescuentoNavigationViewController *) self.navigationController;
     
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSString *idUsuario;
+    idUsuario = [defaults objectForKey:@"idUsuario"];
     
     [request setPostValue:[navigation.cliente valueForKey:@"id"] forKey:@"marca"];
-    [request setPostValue:@"leo@reframe.cl" forKey:@"email"];
+    [request setPostValue:idUsuario forKey:@"cliente"];
     [request setPostValue:dispositivo forKey:@"dispositivo"];
     
     // Upload an image
@@ -211,6 +214,7 @@
         DescuentoViewController *descuento = [self.storyboard instantiateViewControllerWithIdentifier:@"DescuentoCID"];
         [descuento cargarImagen:imagenRespuesta];
         [descuento setTitle:@"Descuento!"];
+        
         
         [self.navigationController pushViewController:descuento animated:YES];
     } else {

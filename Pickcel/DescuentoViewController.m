@@ -34,6 +34,14 @@
                                         [UIImage imageNamed:@"micro_carbon"]];
     
     [imagenDescuento setImage:imagen];
+    
+    UIBarButtonItem *anotherButton = [[UIBarButtonItem alloc] initWithTitle:@"Cerrar" style:UIBarButtonItemStylePlain target:self action:@selector(cerrarNavController)];
+    
+    self.navigationItem.rightBarButtonItem = anotherButton;
+}
+
+- (void)cerrarNavController {
+    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)cargarImagen:(UIImage *) imagenData {

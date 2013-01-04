@@ -48,16 +48,16 @@ NSString *const FBSessionStateChangedNotification = @"cl.reframe.Pickcel:FBSessi
 }
 
 - (BOOL) verificarCuenta {
-    ACAccountStore *accountStore = [[ACAccountStore alloc] init];
-    NSArray *accounts = [accountStore accounts];
-    if ([accounts count] > 0) {
-        return YES;
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSString *idUsuario;
+    idUsuario = [defaults objectForKey:@"idUsuario"];
+    //NSLog(@"ID: %@", idUsuario);
+    
+    if (idUsuario == NULL) {
+        return NO;
     } else {
-        if ([self openSessionWithAllowLoginUI:NO]) {
-            return YES;
-        } else {
-            return NO;
-        }
+        return YES;
     }
     
 }
@@ -116,8 +116,28 @@ NSString *const FBSessionStateChangedNotification = @"cl.reframe.Pickcel:FBSessi
                 // We have a valid session
                 //NSLog(@"User session found");
                 if (self.login != nil) {
-                    [self.login dismissViewControllerAnimated:YES completion:nil];
-                    self.login = nil;
+                    
+                    [FBRequestConnection startForMeWithCompletionHandler:^(FBRequestConnection *connection,
+                                                                          id<FBGraphUser> user,
+                                                                          NSError *error) {
+                        if (!error) {
+                            [self.login.nombre setText:user.name];
+                            [self.login.email setText:[user objectForKey:@"email"]];
+                            
+                            NSDateFormatter *df = [[NSDateFormatter alloc] init];
+                            [df setDateFormat:@"MM/dd/yyyy"];
+                            NSDate *fecha = [[NSDate alloc] init];
+                            fecha = [df dateFromString:user.birthday];
+                            [df setDateFormat:@"dd/MM/yyyy"];
+                            
+                            
+                            [self.login.fechaNacimiento setText:[df stringFromDate:fecha]];
+                        }
+                        
+                        if (![self.login.nombre isEqual:@""] || ![self.login.email isEqual:@""] || ![self.login.fechaNacimiento isEqual:@""]) {
+                            [self.login registrar];
+                        }
+                    }];
                 }
             }
             break;
@@ -151,6 +171,7 @@ NSString *const FBSessionStateChangedNotification = @"cl.reframe.Pickcel:FBSessi
     NSArray *permissions = [[NSArray alloc] initWithObjects:
                             @"email",
                             @"user_about_me",
+                            @"user_birthday",
                             nil];
     return [FBSession openActiveSessionWithReadPermissions:permissions
                                               allowLoginUI:allowLoginUI
