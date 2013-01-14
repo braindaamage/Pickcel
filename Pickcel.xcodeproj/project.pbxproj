@@ -120,6 +120,8 @@
 		A7C2B401167A2E0900D33C35 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7C2B400167A2E0900D33C35 /* SystemConfiguration.framework */; };
 		A7C2B403167A2E1300D33C35 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7C2B402167A2E1300D33C35 /* MobileCoreServices.framework */; };
 		A7C2B405167A2E2D00D33C35 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A7C2B404167A2E2D00D33C35 /* libz.dylib */; };
+		A7CBCEEA16A464AC0012E9EE /* twitter.png in Resources */ = {isa = PBXBuildFile; fileRef = A7CBCEE816A464AC0012E9EE /* twitter.png */; };
+		A7CBCEEC16A464ED0012E9EE /* facebookicon.png in Resources */ = {isa = PBXBuildFile; fileRef = A7CBCEEB16A464ED0012E9EE /* facebookicon.png */; };
 		A7D12AD61694D0DD00A86E4A /* DescuentoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7D12AD51694D0DD00A86E4A /* DescuentoViewController.m */; };
 		A7D243581676268000FE32C3 /* CustomNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = A7D243571676268000FE32C3 /* CustomNavigationBar.m */; };
 		A7ED13351677D5F300929E1F /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7ED13341677D5F300929E1F /* CoreMedia.framework */; };
@@ -295,6 +297,8 @@
 		A7C2B400167A2E0900D33C35 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		A7C2B402167A2E1300D33C35 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		A7C2B404167A2E2D00D33C35 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		A7CBCEE816A464AC0012E9EE /* twitter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = twitter.png; sourceTree = "<group>"; };
+		A7CBCEEB16A464ED0012E9EE /* facebookicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = facebookicon.png; sourceTree = "<group>"; };
 		A7D12AD41694D0DD00A86E4A /* DescuentoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DescuentoViewController.h; sourceTree = "<group>"; };
 		A7D12AD51694D0DD00A86E4A /* DescuentoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DescuentoViewController.m; sourceTree = "<group>"; };
 		A7D243561676268000FE32C3 /* CustomNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomNavigationBar.h; sourceTree = "<group>"; };
@@ -413,6 +417,8 @@
 		A741D885167544A600CCA065 /* Artwork */ = {
 			isa = PBXGroup;
 			children = (
+				A7CBCEEB16A464ED0012E9EE /* facebookicon.png */,
+				A7CBCEE816A464AC0012E9EE /* twitter.png */,
 				A741D89216754B2500CCA065 /* backgroundHome.png */,
 				A741D88B1675485100CCA065 /* tabbar.png */,
 				A741D88C1675485100CCA065 /* tabbar@2x.png */,
@@ -806,6 +812,8 @@
 				A7752E53167817DF000CD7C8 /* yellow-red.acv in Resources */,
 				A732CD7E168CAA9E00F45B64 /* FacebookSDKResources.bundle in Resources */,
 				A781DFDD16972EB0002E2184 /* LoginViewController.xib in Resources */,
+				A7CBCEEA16A464AC0012E9EE /* twitter.png in Resources */,
+				A7CBCEEC16A464ED0012E9EE /* facebookicon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

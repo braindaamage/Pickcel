@@ -10,6 +10,7 @@
 #import "ASIFormDataRequest.h"
 #import "ObtenerDescuentoNavigationViewController.h"
 #import "DescuentoViewController.h"
+#import <FacebookSDK/FacebookSDK.h>
 
 @interface CapturaViewController () {
     NSData *imagenCapturada;
@@ -41,6 +42,8 @@
     [self.progressBar setHidden:YES];
     [self.botonCancelarUploadVista setHidden:YES];
     [self.labelError setHidden:YES];
+    
+    [self.redesView setHidden:YES];
 }
 
 - (void)didReceiveMemoryWarning
@@ -59,88 +62,53 @@
 
 - (IBAction)botonEnviar:(id)sender {
     
+    if (self.redesView.hidden == NO) {
+        [self mostrarOcultarRedes];
+    }
+    
     [self uploadFile];
     
-    //[self publicarEnFacebook];
+    if (self.botonFacebook.on) {
+        [self publishStory];
+    }
     
 }
 
-- (void)publicarEnFacebook {
-    ACAccountStore *accountStore = [[ACAccountStore alloc] init];
-    ACAccountType *facebookAccountType = [accountStore accountTypeWithAccountTypeIdentifier:ACAccountTypeIdentifierFacebook];
+- (void)publishStory
+{
     
-    // We will pass this dictionary in the next method. It should contain your Facebook App ID key,
-    // permissions and (optionally) the ACFacebookAudienceKey
-    // @"publish_stream"
-    NSDictionary *options = @{ACFacebookAppIdKey : @"442688539131546",
-    ACFacebookPermissionsKey : @[@"email"],
-    ACFacebookAudienceKey:ACFacebookAudienceFriends};
+    self.postParams =
+    [[NSMutableDictionary alloc] initWithObjectsAndKeys:
+     [UIImage imageWithData:imagenCapturada], @"source",
+     @"Estoy utilizando Pickcel para obtener un descuento!", @"message",
+     nil];
     
-    NSLog(@"1");
-    // Request access to the Facebook account.
-    // The user will see an alert view when you perform this method.
-    [accountStore requestAccessToAccountsWithType:facebookAccountType
-                                          options:options
-                                       completion:^(BOOL granted, NSError *error) {
-                                           if (granted)
-                                           {
-                                               NSLog(@"2");
-                                               NSDictionary *options2 = @{ACFacebookAppIdKey : @"442688539131546",
-                                               ACFacebookPermissionsKey : @[@"publish_stream"],
-                                           ACFacebookAudienceKey:ACFacebookAudienceFriends};
-                                               [accountStore requestAccessToAccountsWithType:facebookAccountType options:options2 completion:^(BOOL granted, NSError *error) {
-                                                   
-                                                   if (granted) {
-                                                       NSLog(@"3");
-                                                       // At this point we can assume that we have access to the Facebook account
-                                                       NSArray *accounts = [accountStore accountsWithAccountType:facebookAccountType];
-                                                       
-                                                       // Optionally save the account
-                                                       [accountStore saveAccount:[accounts lastObject] withCompletionHandler:nil];
-                                                       
-                                                       
-                                                       
-                                                       // Post
-                                                       ACAccount *account = [accounts lastObject];
-                                                       NSLog(@"%@", account);
-                                                       
-                                                       // Create the parameters dictionary and the URL (!use HTTPS!)
-                                                       NSDictionary *parameters = @{@"message" : @"Prueba upload foto desde Pickcel"};
-                                                       NSURL *URL = [NSURL URLWithString:@"https://graph.facebook.com/me/photos"];
-                                                       
-                                                       // Create request
-                                                       SLRequest *requestLocal = [SLRequest requestForServiceType:SLServiceTypeFacebook
-                                                                                                    requestMethod:SLRequestMethodPOST
-                                                                                                              URL:URL
-                                                                                                       parameters:parameters];
-                                                       [requestLocal addMultipartData:imagenCapturada withName:@"Pickcel" type:@"image/jpeg" filename:nil];
-                                                       
-                                                       // Since we are performing a method that requires authorization we can simply
-                                                       // add the ACAccount to the SLRequest
-                                                       [requestLocal setAccount:account];
-                                                       
-                                                       // Perform request
-                                                       /*[requestLocal performRequestWithHandler:^(NSData *respData, NSHTTPURLResponse *urlResp, NSError *error) {
-                                                        NSDictionary *responseDictionary = [NSJSONSerialization JSONObjectWithData:respData
-                                                        options:kNilOptions
-                                                        error:&error];
-                                                        
-                                                        // Check for errors in the responseDictionary
-                                                        NSLog(@"%@", responseDictionary);
-                                                        }];*/
-                                                   } else {
-                                                       NSLog(@"Failed to grant access weite\n%@", error);
-                                                   }
-                                               }];
-                                               
-                                               
-                                           }
-                                           else
-                                           {
-                                               NSLog(@"Failed to grant access read\n%@", error);
-                                           }
-                                       }];
-
+    [FBRequestConnection
+     startWithGraphPath:@"me/photos"
+     parameters:self.postParams
+     HTTPMethod:@"POST"
+     completionHandler:^(FBRequestConnection *connection,
+                         id result,
+                         NSError *error) {
+         NSString *alertText;
+         if (error) {
+             alertText = [NSString stringWithFormat:
+                          @"error: domain = %@, code = %d",
+                          error.domain, error.code];
+             
+             // Show the result in an alert
+             [[[UIAlertView alloc] initWithTitle:@"FACEBOOK ERROR"
+                                         message:alertText
+                                        delegate:self
+                               cancelButtonTitle:@"OK!"
+                               otherButtonTitles:nil]
+              show];
+         } else {
+             alertText = [NSString stringWithFormat:
+                          @"Posted action, id: %@",
+                          [result objectForKey:@"id"]];
+         }
+     }];
 }
 
 -(void)uploadFile{
@@ -187,6 +155,58 @@
     [self.progressBar setProgress:0.0];
     [self.botonCancelarUploadVista setHidden:YES];
     [self.progressBar setHidden:YES];
+}
+
+- (IBAction)botonRedes:(id)sender {
+    [self mostrarOcultarRedes];
+}
+
+- (IBAction)btnFacebook:(id)sender {
+    [self verificarPermisosFacebook];
+}
+
+- (void) verificarPermisosFacebook {
+    if (FBSession.activeSession.isOpen) {
+        // Ask for publish_actions permissions in context
+        if ([FBSession.activeSession.permissions
+             indexOfObject:@"publish_actions"] == NSNotFound) {
+            // No permissions found in session, ask for it
+            [FBSession.activeSession
+             reauthorizeWithPublishPermissions:
+             [NSArray arrayWithObject:@"publish_actions"]
+             defaultAudience:FBSessionDefaultAudienceFriends
+             completionHandler:^(FBSession *session, NSError *error) {
+                 if (!error) {
+                     // If permissions granted, publish the story
+                     //[self publishStory];
+                 }
+             }];
+        }
+    } else {
+        AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+        // The user has initiated a login, so call the openSession method
+        // and show the login UX if necessary.
+        if ([appDelegate openSessionWithAllowLoginUI:NO]) {
+            [self verificarPermisosFacebook];
+        }
+    }
+}
+
+- (IBAction)btnTwitter:(id)sender {
+}
+
+- (void)mostrarOcultarRedes {
+    CATransition *transition = [CATransition animation];
+    transition.duration = 1.0;
+    transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+    transition.type = kCATransitionFade;
+    transition.delegate = self;
+    [self.redesView.layer addAnimation:transition forKey:nil];
+    if (self.redesView.hidden == YES) {
+        [self.redesView setHidden:NO];
+    } else {
+        [self.redesView setHidden:YES];
+    }
 }
 
 // Funciones ASIHTTPRequest
