@@ -15,6 +15,10 @@
 @interface CapturaViewController () {
     NSData *imagenCapturada;
     ASIFormDataRequest *request;
+    BOOL botonFacebook;
+    BOOL botonTwitter;
+    ACAccount *twitterAccount;
+    UIAlertView *errorTwitter;
 }
 @end
 
@@ -44,6 +48,15 @@
     [self.labelError setHidden:YES];
     
     [self.redesView setHidden:YES];
+    
+    botonFacebook = NO;
+    botonTwitter = NO;
+    
+    errorTwitter = [[UIAlertView alloc] initWithTitle:@"ERROR"
+                                                message:@"No tienes cuentas de Twitter configuradas en el dispositivo"
+                                                delegate:self
+                                        cancelButtonTitle:@"OK"
+                                        otherButtonTitles:nil];
 }
 
 - (void)didReceiveMemoryWarning
@@ -68,9 +81,96 @@
     
     [self uploadFile];
     
-    if (self.botonFacebook.on) {
+    if (botonFacebook) {
         [self publishStory];
     }
+    
+    if (botonTwitter) {
+        [self publishTwitter];
+    }
+    
+}
+
+- (void)publishTwitter {
+    
+    NSLog(@"Publicando en Twitter");
+    
+    ACAccountStore *accountStore = [[ACAccountStore alloc] init];
+    
+    // creamos un objeto accountType especificando que solo queremos obtener las cuentas de Twitter
+    ACAccountType *accountType = [accountStore accountTypeWithAccountTypeIdentifier:ACAccountTypeIdentifierTwitter];
+    
+    [accountStore requestAccessToAccountsWithType:accountType
+                                          options:nil
+                                       completion:^(BOOL granted, NSError *error)
+     {
+         if (granted)
+         {
+             // guardamos las cuentas de twitter en un array
+             NSArray *accountsArray = [accountStore accountsWithAccountType:accountType];
+             // armamos la petición aquí
+             
+             // guardamos la cuenta
+             ACAccount *cuenta = [accountsArray objectAtIndex:0];
+             
+             NSURL *url = [NSURL URLWithString: @"https://upload.twitter.com/1/statuses/update_with_media.json"];
+             
+             SLRequest *requestTwitter = [SLRequest requestForServiceType:SLServiceTypeTwitter
+                                                            requestMethod:SLRequestMethodPOST
+                                                                      URL:url
+                                                               parameters:nil];
+             
+             //  self.accounts is an array of all available accounts;
+             //  we use the first one for simplicity
+             [requestTwitter setAccount:cuenta];
+             
+             //  The "larry.png" is an image that we have locally
+             UIImage *image = [self.imagenObtenidaVista image];
+             
+             //  Obtain NSData from the UIImage
+             NSData *imageData = UIImagePNGRepresentation(image);
+             
+             [requestTwitter addMultipartData:imageData withName:@"media[]"
+                                         type:@"multipart/form-data"
+                                     filename:nil];
+             
+             // NB: Our status must be passed as part of the multipart form data
+             NSString *status = @"Estoy utilizando #Pickcel para obtener un descuento!";
+             
+             [requestTwitter addMultipartData:[status dataUsingEncoding:NSUTF8StringEncoding]
+                                     withName:@"status"
+                                         type:@"multipart/form-data"
+                                     filename:nil];
+             
+             NSLog(@"%@", requestTwitter);
+             
+             
+             //  Perform the request.
+             //    Note that -[performRequestWithHandler] may be called on any thread,
+             //    so you should explicitly dispatch any UI operations to the main thread
+             [requestTwitter performRequestWithHandler:
+              ^(NSData *responseData, NSHTTPURLResponse *urlResponse, NSError *error) {
+                  NSDictionary *dict =
+                  (NSDictionary *)[NSJSONSerialization
+                                   JSONObjectWithData:responseData options:0 error:nil];
+                  
+                  // Log the result
+                  NSLog(@"%@", dict);
+                  
+                  dispatch_async(dispatch_get_main_queue(), ^{
+                      // perform an action that updates the UI...
+                  });
+              }];
+             
+
+             
+         } else {
+             NSLog(@"Error no se pudo acceder a las cuentas: %@", [error localizedDescription]);
+             //completionHandler(NO);
+             //[errorTwitter show];
+         }
+     }];
+
     
 }
 
@@ -162,10 +262,25 @@
 }
 
 - (IBAction)btnFacebook:(id)sender {
-    [self verificarPermisosFacebook];
+    if (botonFacebook) {
+        botonFacebook = NO;
+    } else {
+        [self verificarPermisosFacebook];
+    }
+    
+    UIButton *boton = (UIButton *) sender;
+    
+    if (botonFacebook) {
+        UIImage *imagen = [UIImage imageNamed:@"facebookOn.png"];
+        [boton setImage:imagen forState:UIControlStateNormal];
+    } else {
+        UIImage *imagen = [UIImage imageNamed:@"facebookOff.png"];
+        [boton setImage:imagen forState:UIControlStateNormal];
+    }
 }
 
 - (void) verificarPermisosFacebook {
+    botonFacebook = NO;
     if (FBSession.activeSession.isOpen) {
         // Ask for publish_actions permissions in context
         if ([FBSession.activeSession.permissions
@@ -179,8 +294,11 @@
                  if (!error) {
                      // If permissions granted, publish the story
                      //[self publishStory];
+                     botonFacebook = YES;
                  }
              }];
+        } else {
+            botonFacebook = YES;
         }
     } else {
         AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
@@ -193,6 +311,56 @@
 }
 
 - (IBAction)btnTwitter:(id)sender {
+    if (botonTwitter) {
+        botonTwitter = NO;
+        UIImage *imagen = [UIImage imageNamed:@"twitterOff.png"];
+        [self.vistaBotonTwitter setImage:imagen forState:UIControlStateNormal];
+    } else {
+        [self accesoTwitterWithCompletionHandler:^(BOOL access) {
+            if (access) {
+                botonTwitter = YES;
+                [self performSelectorOnMainThread:@selector(cambiarImagenTwitter) withObject:nil waitUntilDone:YES];
+            }
+        }];
+    }
+}
+
+- (void)cambiarImagenTwitter {
+    UIImage *imagen = [UIImage imageNamed:@"twitterOn.png"];
+    [self.vistaBotonTwitter setImage:imagen forState:UIControlStateNormal];
+}
+
+- (void)accesoTwitterWithCompletionHandler:(void (^)(BOOL access))completionHandler {
+    botonTwitter = NO;
+    ACAccountStore *accountStore = [[ACAccountStore alloc] init];
+    
+    // creamos un objeto accountType especificando que solo queremos obtener las cuentas de Twitter
+    ACAccountType *accountType = [accountStore accountTypeWithAccountTypeIdentifier:ACAccountTypeIdentifierTwitter];
+    
+    [accountStore requestAccessToAccountsWithType:accountType
+                                          options:nil
+                                       completion:^(BOOL granted, NSError *error)
+     {
+         if (granted)
+         {
+             // guardamos las cuentas de twitter en un array
+             NSArray *accountsArray = [accountStore accountsWithAccountType:accountType];
+             // armamos la petición aquí
+             
+             if ([accountsArray count] > 0) {
+                 twitterAccount = [accountsArray objectAtIndex:0];
+             } else {
+                 twitterAccount = [accountsArray objectAtIndex:0];
+             }
+
+             completionHandler(YES);
+             
+         } else {
+             NSLog(@"Error no se pudo acceder a las cuentas: %@", [error localizedDescription]);
+             //completionHandler(NO);
+             //[errorTwitter show];
+         }
+     }];
 }
 
 - (void)mostrarOcultarRedes {

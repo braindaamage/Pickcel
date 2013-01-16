@@ -24,8 +24,7 @@
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *botonCamara;
 @property (weak, nonatomic) IBOutlet UILabel *labelError;
 @property (weak, nonatomic) IBOutlet UIView *redesView;
-@property (weak, nonatomic) IBOutlet UISwitch *botonFacebook;
-@property (weak, nonatomic) IBOutlet UISwitch *botonTwitter;
+@property (weak, nonatomic) IBOutlet UIButton *vistaBotonTwitter;
 @property (strong, nonatomic) NSMutableDictionary *postParams;
 
 - (IBAction)cerrarObtenerDescuento:(id)sender;
