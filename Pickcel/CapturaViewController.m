@@ -281,10 +281,13 @@
 
 - (void) verificarPermisosFacebook {
     botonFacebook = NO;
+    NSLog(@"Verificando Facebook");
     if (FBSession.activeSession.isOpen) {
+        NSLog(@"Sessión activa");
         // Ask for publish_actions permissions in context
         if ([FBSession.activeSession.permissions
              indexOfObject:@"publish_actions"] == NSNotFound) {
+            NSLog(@"Obteniendo Permisos");
             // No permissions found in session, ask for it
             [FBSession.activeSession
              reauthorizeWithPublishPermissions:
@@ -295,16 +298,21 @@
                      // If permissions granted, publish the story
                      //[self publishStory];
                      botonFacebook = YES;
+                     NSLog(@"Permisos OK");
+                 } else {
+                     NSLog(@"No se pudo rescatar permsiso, error: %@", [error localizedDescription]);
                  }
              }];
         } else {
+            NSLog(@"Permisos ya activos");
             botonFacebook = YES;
         }
     } else {
+        NSLog(@"No se encontró Session");
         AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
         // The user has initiated a login, so call the openSession method
         // and show the login UX if necessary.
-        if ([appDelegate openSessionWithAllowLoginUI:NO]) {
+        if ([appDelegate openSessionWithAllowLoginUI:YES]) {
             [self verificarPermisosFacebook];
         }
     }

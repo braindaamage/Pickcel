@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A732CD7C168CAA8C00F45B64 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A732CD7B168CAA8C00F45B64 /* FacebookSDK.framework */; };
-		A732CD7E168CAA9E00F45B64 /* FacebookSDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A732CD7D168CAA9E00F45B64 /* FacebookSDKResources.bundle */; };
 		A732CD80168CAAC000F45B64 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A732CD7F168CAAC000F45B64 /* AdSupport.framework */; };
 		A741D85D1675388600CCA065 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A741D85C1675388600CCA065 /* UIKit.framework */; };
 		A741D85F1675388600CCA065 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A741D85E1675388600CCA065 /* Foundation.framework */; };
@@ -133,6 +131,8 @@
 		A7ED13391677D60200929E1F /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7ED13381677D60200929E1F /* OpenGLES.framework */; };
 		A7ED133B1677D60B00929E1F /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7ED133A1677D60B00929E1F /* AVFoundation.framework */; };
 		A7ED133D1677D61500929E1F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7ED133C1677D61500929E1F /* QuartzCore.framework */; };
+		A7FFCCCD16A79FBB003B6499 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7FFCCCC16A79FBB003B6499 /* FacebookSDK.framework */; };
+		A7FFCCCF16A79FDA003B6499 /* FacebookSDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A7FFCCCE16A79FDA003B6499 /* FacebookSDKResources.bundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -160,8 +160,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		A732CD7B168CAA8C00F45B64 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../../FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
-		A732CD7D168CAA9E00F45B64 /* FacebookSDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = FacebookSDKResources.bundle; path = ../../FacebookSDK/FacebookSDK.framework/Versions/A/Resources/FacebookSDKResources.bundle; sourceTree = "<group>"; };
 		A732CD7F168CAAC000F45B64 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		A741D8581675388600CCA065 /* Pickcel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pickcel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A741D85C1675388600CCA065 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -316,6 +314,8 @@
 		A7ED13381677D60200929E1F /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		A7ED133A1677D60B00929E1F /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		A7ED133C1677D61500929E1F /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		A7FFCCCC16A79FBB003B6499 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../../../FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
+		A7FFCCCE16A79FDA003B6499 /* FacebookSDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = FacebookSDKResources.bundle; path = ../../../FacebookSDK/FacebookSDK.framework/Versions/A/Resources/FacebookSDKResources.bundle; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -339,7 +339,7 @@
 				A796F8B71677FB070075C0D0 /* libGPUImage.a in Frameworks */,
 				A741D85D1675388600CCA065 /* UIKit.framework in Frameworks */,
 				A741D85F1675388600CCA065 /* Foundation.framework in Frameworks */,
-				A732CD7C168CAA8C00F45B64 /* FacebookSDK.framework in Frameworks */,
+				A7FFCCCD16A79FBB003B6499 /* FacebookSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -349,7 +349,6 @@
 		A741D84D1675388600CCA065 = {
 			isa = PBXGroup;
 			children = (
-				A732CD7F168CAAC000F45B64 /* AdSupport.framework */,
 				A741D8621675388600CCA065 /* Pickcel */,
 				A741D85B1675388600CCA065 /* Frameworks */,
 				A741D8591675388600CCA065 /* Products */,
@@ -367,8 +366,9 @@
 		A741D85B1675388600CCA065 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				A732CD7D168CAA9E00F45B64 /* FacebookSDKResources.bundle */,
-				A732CD7B168CAA8C00F45B64 /* FacebookSDK.framework */,
+				A7FFCCCE16A79FDA003B6499 /* FacebookSDKResources.bundle */,
+				A7FFCCCC16A79FBB003B6499 /* FacebookSDK.framework */,
+				A732CD7F168CAAC000F45B64 /* AdSupport.framework */,
 				A76447D51680FBA1008116C0 /* Accounts.framework */,
 				A76447D31680FB9B008116C0 /* Social.framework */,
 				A7C2B404167A2E2D00D33C35 /* libz.dylib */,
@@ -822,7 +822,6 @@
 				A7752E51167817DF000CD7C8 /* crossprocess.acv in Resources */,
 				A7752E52167817DF000CD7C8 /* purple-green.acv in Resources */,
 				A7752E53167817DF000CD7C8 /* yellow-red.acv in Resources */,
-				A732CD7E168CAA9E00F45B64 /* FacebookSDKResources.bundle in Resources */,
 				A781DFDD16972EB0002E2184 /* LoginViewController.xib in Resources */,
 				A7CBCEEA16A464AC0012E9EE /* twitter.png in Resources */,
 				A7CBCEEC16A464ED0012E9EE /* facebookicon.png in Resources */,
@@ -830,6 +829,7 @@
 				A7BE25AA16A700FD005A0D7E /* facebookOn.png in Resources */,
 				A7BE25AB16A700FD005A0D7E /* twitterOff.png in Resources */,
 				A7BE25AC16A700FD005A0D7E /* twitterOn.png in Resources */,
+				A7FFCCCF16A79FDA003B6499 /* FacebookSDKResources.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -953,6 +953,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../../FacebookSDK\"",
+					"\"$(SRCROOT)/../../../FacebookSDK\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Pickcel/Pickcel-Prefix.pch";
@@ -973,6 +974,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../../FacebookSDK\"",
+					"\"$(SRCROOT)/../../../FacebookSDK\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Pickcel/Pickcel-Prefix.pch";
