@@ -30,8 +30,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    self.descuentoView.backgroundColor = [UIColor colorWithPatternImage:
-                                        [UIImage imageNamed:@"micro_carbon"]];
+    //self.descuentoView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"micro_carbon"]];
     
     [imagenDescuento setImage:imagen];
     

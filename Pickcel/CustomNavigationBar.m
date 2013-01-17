@@ -25,7 +25,7 @@
 - (void)drawRect:(CGRect)rect
 {
     // Drawing code
-    UIImage *image = [UIImage imageNamed:@"tabbar"];
+    UIImage *image = [UIImage imageNamed:@"topbar"];
     [image drawInRect:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
 }
 

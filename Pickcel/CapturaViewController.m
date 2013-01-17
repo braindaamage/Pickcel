@@ -39,15 +39,12 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     botonEnviarVista.enabled = NO;
-    self.capturaView.backgroundColor = [UIColor colorWithPatternImage:
-                                 [UIImage imageNamed:@"micro_carbon"]];
-    [self.toolBar setBackgroundImage:[UIImage imageNamed:@"tabbar"] forToolbarPosition:UIToolbarPositionAny barMetrics:UIBarMetricsDefault];
+    //self.capturaView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"micro_carbon"]];
+    //[self.toolBar setBackgroundImage:[UIImage imageNamed:@"tabbar"] forToolbarPosition:UIToolbarPositionAny barMetrics:UIBarMetricsDefault];
     
     [self.progressBar setHidden:YES];
     [self.botonCancelarUploadVista setHidden:YES];
     [self.labelError setHidden:YES];
-    
-    [self.redesView setHidden:YES];
     
     botonFacebook = NO;
     botonTwitter = NO;
@@ -75,10 +72,6 @@
 
 - (IBAction)botonEnviar:(id)sender {
     
-    if (self.redesView.hidden == NO) {
-        [self mostrarOcultarRedes];
-    }
-    
     [self uploadFile];
     
     if (botonFacebook) {
@@ -93,7 +86,7 @@
 
 - (void)publishTwitter {
     
-    NSLog(@"Publicando en Twitter");
+    //NSLog(@"Publicando en Twitter");
     
     ACAccountStore *accountStore = [[ACAccountStore alloc] init];
     
@@ -142,20 +135,18 @@
                                          type:@"multipart/form-data"
                                      filename:nil];
              
-             NSLog(@"%@", requestTwitter);
-             
              
              //  Perform the request.
              //    Note that -[performRequestWithHandler] may be called on any thread,
              //    so you should explicitly dispatch any UI operations to the main thread
              [requestTwitter performRequestWithHandler:
               ^(NSData *responseData, NSHTTPURLResponse *urlResponse, NSError *error) {
-                  NSDictionary *dict =
+                  /*NSDictionary *dict =
                   (NSDictionary *)[NSJSONSerialization
-                                   JSONObjectWithData:responseData options:0 error:nil];
+                                   JSONObjectWithData:responseData options:0 error:nil];*/
                   
                   // Log the result
-                  NSLog(@"%@", dict);
+                  //NSLog(@"%@", dict);
                   
                   dispatch_async(dispatch_get_main_queue(), ^{
                       // perform an action that updates the UI...
@@ -176,7 +167,7 @@
 
 - (void)publishStory
 {
-    
+    NSLog(@"Publicando en Facebook");
     self.postParams =
     [[NSMutableDictionary alloc] initWithObjectsAndKeys:
      [UIImage imageWithData:imagenCapturada], @"source",
@@ -190,8 +181,10 @@
      completionHandler:^(FBRequestConnection *connection,
                          id result,
                          NSError *error) {
+         NSLog(@"Revisando Resultado");
          NSString *alertText;
          if (error) {
+             NSLog(@"Error: %@", error);
              alertText = [NSString stringWithFormat:
                           @"error: domain = %@, code = %d",
                           error.domain, error.code];
@@ -207,6 +200,7 @@
              alertText = [NSString stringWithFormat:
                           @"Posted action, id: %@",
                           [result objectForKey:@"id"]];
+             NSLog(@"Post Facebook: %@", result);
          }
      }];
 }
@@ -257,10 +251,6 @@
     [self.progressBar setHidden:YES];
 }
 
-- (IBAction)botonRedes:(id)sender {
-    [self mostrarOcultarRedes];
-}
-
 - (IBAction)btnFacebook:(id)sender {
     if (botonFacebook) {
         botonFacebook = NO;
@@ -277,6 +267,11 @@
         UIImage *imagen = [UIImage imageNamed:@"facebookOff.png"];
         [boton setImage:imagen forState:UIControlStateNormal];
     }
+}
+
+- (void)facebookON {
+    UIImage *imagen = [UIImage imageNamed:@"facebookOn.png"];
+    [self.vistaBtnFacebook setImage:imagen forState:UIControlStateNormal];
 }
 
 - (void) verificarPermisosFacebook {
@@ -298,6 +293,7 @@
                      // If permissions granted, publish the story
                      //[self publishStory];
                      botonFacebook = YES;
+                     [self performSelectorOnMainThread:@selector(facebookON) withObject:nil waitUntilDone:YES];
                      NSLog(@"Permisos OK");
                  } else {
                      NSLog(@"No se pudo rescatar permsiso, error: %@", [error localizedDescription]);
@@ -369,20 +365,6 @@
              //[errorTwitter show];
          }
      }];
-}
-
-- (void)mostrarOcultarRedes {
-    CATransition *transition = [CATransition animation];
-    transition.duration = 1.0;
-    transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
-    transition.type = kCATransitionFade;
-    transition.delegate = self;
-    [self.redesView.layer addAnimation:transition forKey:nil];
-    if (self.redesView.hidden == YES) {
-        [self.redesView setHidden:NO];
-    } else {
-        [self.redesView setHidden:YES];
-    }
 }
 
 // Funciones ASIHTTPRequest

@@ -26,12 +26,12 @@
 @property (weak, nonatomic) IBOutlet UIView *redesView;
 @property (weak, nonatomic) IBOutlet UIButton *vistaBotonTwitter;
 @property (strong, nonatomic) NSMutableDictionary *postParams;
+@property (weak, nonatomic) IBOutlet UIButton *vistaBtnFacebook;
 
 - (IBAction)cerrarObtenerDescuento:(id)sender;
 - (IBAction)abrirCamara:(id)sender;
 - (IBAction)botonEnviar:(id)sender;
 - (IBAction)botonCancelarUpload:(id)sender;
-- (IBAction)botonRedes:(id)sender;
 - (IBAction)btnFacebook:(id)sender;
 - (IBAction)btnTwitter:(id)sender;
 

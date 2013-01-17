@@ -36,7 +36,7 @@
 	// Do any additional setup after loading the view.
     UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Volver" style:UIBarButtonItemStyleBordered target:nil action:nil];
     self.navigationItem.backBarButtonItem = backButton;
-    self.vistaColeccion.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:@"micro_carbon"]];
+    //self.vistaColeccion.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:@"micro_carbon"]];
     
     [self obtenerClientes];
 }

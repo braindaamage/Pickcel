@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <Accounts/Accounts.h>
+#import <Social/Social.h>
 #import <FacebookSDK/FacebookSDK.h>
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>

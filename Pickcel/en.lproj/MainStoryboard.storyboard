@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2844" systemVersion="11G63" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="zcj-HU-dns">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2844" systemVersion="11G63" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="zcj-HU-dns">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1930"/>
     </dependencies>
@@ -13,17 +13,17 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Info" id="sti-a9-QwE"/>
+                    <tabBarItem key="tabBarItem" title="Info" image="info" id="sti-a9-QwE"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UIL-9h-sNz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="157" y="-1353"/>
         </scene>
-        <!--Navigation View Controller - Pickcel-->
+        <!--Navigation View Controller - Camara-->
         <scene sceneID="fFw-Vf-a8D">
             <objects>
                 <navigationController definesPresentationContext="YES" id="loe-qp-D3Q" customClass="NavigationViewController" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Pickcel" id="BZV-S6-ydy"/>
+                    <tabBarItem key="tabBarItem" title="Camara" image="camaratab" id="BZV-S6-ydy"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="blackOpaque" id="vPU-Me-eAc" customClass="CustomNavigationBar">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -67,10 +67,22 @@
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
-                        <activityIndicatorView key="backgroundView" hidden="YES" opaque="NO" contentMode="scaleToFill" hidesWhenStopped="YES" style="whiteLarge" id="7cw-PL-FmO">
+                        <view key="backgroundView" contentMode="scaleToFill" id="TeR-gz-bT2">
                             <rect key="frame" x="0.0" y="0.0" width="320" height="367"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        </activityIndicatorView>
+                            <subviews>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="fondotabcamara" id="oph-Jb-WmT">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="367"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                </imageView>
+                                <progressView hidden="YES" opaque="NO" contentMode="scaleToFill" progressViewStyle="bar" id="qm1-Ls-utB">
+                                    <rect key="frame" x="5" y="179" width="310" height="11"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="trackTintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </progressView>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        </view>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="celdaID" id="WlG-dA-s8Y" customClass="ClientesCollectionViewCell">
                                 <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
@@ -79,11 +91,8 @@
                                     <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b5v-oM-xWC">
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="71" id="8uR-sb-jgZ"/>
-                                                <constraint firstAttribute="width" constant="72" id="AGi-qz-sxU"/>
-                                            </constraints>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="b5v-oM-xWC">
+                                            <rect key="frame" x="14" y="14" width="72" height="72"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                             <state key="normal">
                                                 <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -99,10 +108,6 @@
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
-                                <constraints>
-                                    <constraint firstItem="b5v-oM-xWC" firstAttribute="leading" secondItem="WlG-dA-s8Y" secondAttribute="leading" constant="14" id="mk5-G5-3ub"/>
-                                    <constraint firstItem="b5v-oM-xWC" firstAttribute="top" secondItem="WlG-dA-s8Y" secondAttribute="top" constant="14" id="wDL-Ry-9ZS"/>
-                                </constraints>
                                 <connections>
                                     <outlet property="botonVista" destination="b5v-oM-xWC" id="pqE-eX-nrO"/>
                                 </connections>
@@ -116,14 +121,8 @@
                     <tabBarItem key="tabBarItem" title="Item" id="b0g-Iz-eG7"/>
                     <navigationItem key="navigationItem" id="iYY-yq-Eci">
                         <nil key="title"/>
-                        <progressView key="titleView" hidden="YES" opaque="NO" contentMode="scaleToFill" progressViewStyle="bar" id="qm1-Ls-utB">
-                            <rect key="frame" x="5" y="17" width="310" height="11"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <color key="trackTintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                        </progressView>
                     </navigationItem>
                     <connections>
-                        <outlet property="indicadorCarga" destination="7cw-PL-FmO" id="U1Y-qf-H0G"/>
                         <outlet property="progressBar" destination="qm1-Ls-utB" id="wzi-hR-NA5"/>
                         <outlet property="vistaColeccion" destination="IW6-Im-7nI" id="7Lp-qa-WhS"/>
                     </connections>
@@ -136,7 +135,7 @@
         <scene sceneID="g19-ae-whE">
             <objects>
                 <navigationController storyboardIdentifier="ObtenerDescuentroCID" definesPresentationContext="YES" id="umV-uA-oBW" customClass="ObtenerDescuentoNavigationViewController" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="blackOpaque" id="0Yb-6x-tZI" customClass="CustomNavigationBar">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="blackOpaque" id="0Yb-6x-tZI">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -155,65 +154,45 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mMQ-BQ-PL2">
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="320" id="1bo-QD-cFE"/>
-                                </constraints>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="mMQ-BQ-PL2">
+                                <rect key="frame" x="0.0" y="1" width="320" height="320"/>
                             </imageView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cu6-vT-zkQ">
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GeA-dk-MbY">
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="60" id="NMn-Qf-81A"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                        <state key="normal" title="F" image="facebookOff.png">
-                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <state key="highlighted">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="btnFacebook:" destination="BUR-uE-fr5" eventType="touchUpInside" id="Z7Y-Rl-5kT"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dOG-5h-GYu">
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="60" id="znj-0e-FmZ"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                        <state key="normal" title="T" image="twitterOff.png">
-                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <state key="highlighted">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="btnTwitter:" destination="BUR-uE-fr5" eventType="touchUpInside" id="N40-rx-L12"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstItem="GeA-dk-MbY" firstAttribute="leading" secondItem="Cu6-vT-zkQ" secondAttribute="leading" constant="67" id="6i9-UQ-T8A"/>
-                                    <constraint firstItem="GeA-dk-MbY" firstAttribute="top" secondItem="Cu6-vT-zkQ" secondAttribute="top" type="default" id="LFf-MW-Myo"/>
-                                    <constraint firstAttribute="trailing" secondItem="dOG-5h-GYu" secondAttribute="trailing" constant="66" id="ZJb-cS-xc3"/>
-                                    <constraint firstItem="dOG-5h-GYu" firstAttribute="centerY" secondItem="GeA-dk-MbY" secondAttribute="centerY" type="default" id="hob-3t-8wy"/>
-                                    <constraint firstItem="GeA-dk-MbY" firstAttribute="bottom" secondItem="Cu6-vT-zkQ" secondAttribute="bottom" type="default" id="hrT-vG-haR"/>
-                                    <constraint firstItem="dOG-5h-GYu" firstAttribute="top" secondItem="Cu6-vT-zkQ" secondAttribute="top" type="default" id="wAn-6f-iAh"/>
-                                </constraints>
-                            </view>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kcc-0H-W4R">
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="NWs-KH-HCm"/>
-                                </constraints>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="GeA-dk-MbY">
+                                <rect key="frame" x="33" y="328" width="60" height="36"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="F" image="facebookOff.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnFacebook:" destination="BUR-uE-fr5" eventType="touchUpInside" id="Z7Y-Rl-5kT"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="dOG-5h-GYu">
+                                <rect key="frame" x="227" y="328" width="60" height="36"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="T" image="twitterOff.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnTwitter:" destination="BUR-uE-fr5" eventType="touchUpInside" id="N40-rx-L12"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Kcc-0H-W4R">
+                                <rect key="frame" x="20" y="197" width="280" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="blackOpaque" translatesAutoresizingMaskIntoConstraints="NO" id="KOZ-RW-oKg">
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="blackOpaque" id="KOZ-RW-oKg">
+                                <rect key="frame" x="0.0" y="372" width="320" height="44"/>
                                 <items>
                                     <barButtonItem systemItem="camera" id="C6C-dK-Foe">
                                         <connections>
@@ -221,11 +200,6 @@
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="wLa-Z3-86W"/>
-                                    <barButtonItem title="Compartir" id="87c-Po-Y29">
-                                        <connections>
-                                            <action selector="botonRedes:" destination="BUR-uE-fr5" id="TEz-dS-pVP"/>
-                                        </connections>
-                                    </barButtonItem>
                                     <barButtonItem title="Enviar" id="LNW-OL-TJH">
                                         <connections>
                                             <action selector="botonEnviar:" destination="BUR-uE-fr5" id="cNQ-Nf-DPP"/>
@@ -233,12 +207,14 @@
                                     </barButtonItem>
                                 </items>
                             </toolbar>
-                            <progressView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Nl-c0-8iN">
+                            <progressView opaque="NO" contentMode="scaleToFill" id="8Nl-c0-8iN">
+                                <rect key="frame" x="33" y="155" width="254" height="9"/>
                                 <color key="progressTintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </progressView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bVQ-ac-hOs">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="bVQ-ac-hOs">
+                                <rect key="frame" x="295" y="150" width="19" height="19"/>
                                 <fontDescription key="fontDescription" type="boldSystem" size="button"/>
-                                <state key="normal">
+                                <state key="normal" image="cancel">
                                     <color key="titleColor" red="0.19607843137254902" green="0.30980392156862746" blue="0.52156862745098043" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -251,25 +227,6 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                        <constraints>
-                            <constraint firstItem="Kcc-0H-W4R" firstAttribute="leading" secondItem="ke3-Bl-nSD" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="11y-r5-Jqd"/>
-                            <constraint firstAttribute="bottom" secondItem="bVQ-ac-hOs" secondAttribute="bottom" constant="54" id="5i5-AT-rHn"/>
-                            <constraint firstItem="Cu6-vT-zkQ" firstAttribute="top" secondItem="ke3-Bl-nSD" secondAttribute="top" constant="305" id="5k9-Lc-gqp"/>
-                            <constraint firstAttribute="trailing" secondItem="bVQ-ac-hOs" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="Ccv-SB-s5d"/>
-                            <constraint firstItem="mMQ-BQ-PL2" firstAttribute="trailing" secondItem="ke3-Bl-nSD" secondAttribute="trailing" type="default" id="Pk0-jJ-9Uv"/>
-                            <constraint firstItem="mMQ-BQ-PL2" firstAttribute="leading" secondItem="ke3-Bl-nSD" secondAttribute="leading" type="default" id="Voe-lr-z3b"/>
-                            <constraint firstItem="8Nl-c0-8iN" firstAttribute="top" secondItem="mMQ-BQ-PL2" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="aCJ-bn-IWT"/>
-                            <constraint firstItem="Kcc-0H-W4R" firstAttribute="centerY" secondItem="8Nl-c0-8iN" secondAttribute="centerY" type="default" id="bQF-pd-PTK"/>
-                            <constraint firstItem="bVQ-ac-hOs" firstAttribute="leading" secondItem="8Nl-c0-8iN" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="cBB-oG-wDW"/>
-                            <constraint firstItem="KOZ-RW-oKg" firstAttribute="leading" secondItem="ke3-Bl-nSD" secondAttribute="leading" type="default" id="ctq-3E-G8B"/>
-                            <constraint firstItem="mMQ-BQ-PL2" firstAttribute="top" secondItem="ke3-Bl-nSD" secondAttribute="top" constant="20" symbolic="YES" type="default" id="etH-H0-0Gv"/>
-                            <constraint firstItem="8Nl-c0-8iN" firstAttribute="leading" secondItem="ke3-Bl-nSD" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="iTt-gt-hO6"/>
-                            <constraint firstItem="KOZ-RW-oKg" firstAttribute="trailing" secondItem="ke3-Bl-nSD" secondAttribute="trailing" type="default" id="jmj-tx-AY5"/>
-                            <constraint firstAttribute="trailing" secondItem="Kcc-0H-W4R" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="pCl-qR-dxq"/>
-                            <constraint firstAttribute="trailing" secondItem="Cu6-vT-zkQ" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="pTc-pR-H7I"/>
-                            <constraint firstItem="KOZ-RW-oKg" firstAttribute="bottom" secondItem="ke3-Bl-nSD" secondAttribute="bottom" type="default" id="pZB-DE-8dE"/>
-                            <constraint firstItem="Cu6-vT-zkQ" firstAttribute="leading" secondItem="ke3-Bl-nSD" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="uyx-hz-MRJ"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="5U3-l4-1y7">
                         <barButtonItem key="leftBarButtonItem" title="Cancelar" id="xxx-3R-rTT">
@@ -286,9 +243,9 @@
                         <outlet property="imagenObtenidaVista" destination="mMQ-BQ-PL2" id="jzN-QY-PhM"/>
                         <outlet property="labelError" destination="Kcc-0H-W4R" id="KGa-Rh-OkW"/>
                         <outlet property="progressBar" destination="8Nl-c0-8iN" id="6QH-CQ-F2q"/>
-                        <outlet property="redesView" destination="Cu6-vT-zkQ" id="j2U-GA-fHF"/>
                         <outlet property="toolBar" destination="KOZ-RW-oKg" id="UyP-CO-aVW"/>
                         <outlet property="vistaBotonTwitter" destination="dOG-5h-GYu" id="cmk-AU-Rut"/>
+                        <outlet property="vistaBtnFacebook" destination="GeA-dk-MbY" id="LMJ-1k-9r9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Ea-qq-f0h" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -303,18 +260,11 @@
                         <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Icon@2x.png" translatesAutoresizingMaskIntoConstraints="NO" id="Eaz-kb-3mC">
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="280" id="Pr3-Fb-aah"/>
-                                </constraints>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Icon@2x.png" id="Eaz-kb-3mC">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                        <constraints>
-                            <constraint firstItem="Eaz-kb-3mC" firstAttribute="leading" secondItem="Yyv-vb-hyi" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="77C-pk-n0Z"/>
-                            <constraint firstAttribute="trailing" secondItem="Eaz-kb-3mC" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="JDV-fZ-Pz4"/>
-                            <constraint firstItem="Eaz-kb-3mC" firstAttribute="top" secondItem="Yyv-vb-hyi" secondAttribute="top" constant="40" id="cfF-jx-Lin"/>
-                        </constraints>
                     </view>
                     <connections>
                         <outlet property="descuentoView" destination="Yyv-vb-hyi" id="lP4-ls-jIh"/>
@@ -328,9 +278,90 @@
     </scenes>
     <resources>
         <image name="Icon@2x.png" width="114" height="114"/>
+        <image name="camaratab" width="16" height="16"/>
+        <image name="cancel" width="16" height="16"/>
         <image name="facebookOff.png" width="60" height="60"/>
+        <image name="fondotabcamara" width="16" height="16"/>
+        <image name="info" width="16" height="16"/>
         <image name="twitterOff.png" width="60" height="60"/>
     </resources>
+    <classes>
+        <class className="CapturaViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CapturaViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="abrirCamara:"/>
+                <relationship kind="action" name="botonCancelarUpload:"/>
+                <relationship kind="action" name="botonEnviar:"/>
+                <relationship kind="action" name="btnFacebook:"/>
+                <relationship kind="action" name="btnTwitter:"/>
+                <relationship kind="action" name="cerrarObtenerDescuento:"/>
+                <relationship kind="outlet" name="botonCamara" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="botonCancelarUploadVista" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="botonEnviarVista" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="capturaView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="imagenObtenidaVista" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="labelError" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="progressBar" candidateClass="UIProgressView"/>
+                <relationship kind="outlet" name="redesView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="toolBar" candidateClass="UIToolbar"/>
+                <relationship kind="outlet" name="vistaBotonTwitter" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="vistaBtnFacebook" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="ClientesCollectionViewCell" superclassName="UICollectionViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ClientesCollectionViewCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="botonVista" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="imagenBoton" candidateClass="UIImageView"/>
+            </relationships>
+        </class>
+        <class className="ClientesCollectionViewController" superclassName="UICollectionViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ClientesCollectionViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="celdaBotonPulsar:"/>
+                <relationship kind="outlet" name="indicadorCarga" candidateClass="UIActivityIndicatorView"/>
+                <relationship kind="outlet" name="progressBar" candidateClass="UIProgressView"/>
+                <relationship kind="outlet" name="vistaColeccion" candidateClass="UICollectionView"/>
+            </relationships>
+        </class>
+        <class className="CustomNavigationBar" superclassName="UINavigationBar">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CustomNavigationBar.h"/>
+        </class>
+        <class className="DescuentoViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/DescuentoViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="descuentoView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="imagenDescuento" candidateClass="UIImageView"/>
+            </relationships>
+        </class>
+        <class className="InfoViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/InfoViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="logoutFacebook:"/>
+            </relationships>
+        </class>
+        <class className="NavigationViewController" superclassName="UINavigationController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NavigationViewController.h"/>
+        </class>
+        <class className="ObtenerDescuentoNavigationViewController" superclassName="UINavigationController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ObtenerDescuentoNavigationViewController.h"/>
+        </class>
+        <class className="TabBarViewController" superclassName="UITabBarController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TabBarViewController.h"/>
+        </class>
+        <class className="UICollectionReusableView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionReusableView.h"/>
+        </class>
+        <class className="UICollectionViewCell" superclassName="UICollectionReusableView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewCell.h"/>
+        </class>
+        <class className="UICollectionViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewController.h"/>
+        </class>
+        <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

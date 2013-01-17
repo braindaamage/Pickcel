@@ -28,7 +28,7 @@ NSString *const FBSessionStateChangedNotification = @"cl.reframe.Pickcel:FBSessi
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
-    [self customizeInterface];
+    //[self customizeInterface];
     
     UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
     
@@ -161,6 +161,8 @@ NSString *const FBSessionStateChangedNotification = @"cl.reframe.Pickcel:FBSessi
                                   cancelButtonTitle:@"OK"
                                   otherButtonTitles:nil];
         [alertView show];
+        
+         NSLog(@"error login: %@", error);
     }
 }
 
