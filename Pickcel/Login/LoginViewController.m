@@ -30,7 +30,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    // Do any additional set…up after loading the view from its nib.
     
     camposArray = [[NSArray alloc] initWithObjects:self.nombre, self.email, self.fechaNacimiento, nil];
     
@@ -88,7 +88,7 @@
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     // The user has initiated a login, so call the openSession method
     // and show the login UX if necessary.
-    [appDelegate openSessionWithAllowLoginUI:YES];
+    [appDelegate openSessionWithAllowLoginUI:YES withView:self tipoVista:@"login"];
     
 }
 
@@ -107,7 +107,25 @@
 }
 
 - (IBAction)actRegistrar:(id)sender {
-    [self registrar];
+    if ([self verificarTexto]) {
+        [self registrar];
+    } else {
+        UIAlertView *alerta = [[UIAlertView alloc] initWithTitle:@"ERROR"
+                                                         message:@"Debes ingresar todos los datos"
+                                                        delegate:self
+                                               cancelButtonTitle:@"OK"
+                                               otherButtonTitles: nil];
+        
+        [alerta show];
+    }
+}
+
+- (BOOL)verificarTexto {
+    if ([self.nombre.text isEqualToString:@""] && [self.email.text isEqualToString:@""] && [self.fechaNacimiento.text isEqualToString:@""]) {
+        return NO;
+    } else {
+        return YES;
+    }
 }
 
 
@@ -159,15 +177,21 @@
             break;
         case 2:
             //self.labelError.text = @"Tiempo de espera agotado.";
-            break;
-        case 4:
-            // Cancelado
-            //self.labelError.text = @"";
+            error = [[NSString alloc] initWithFormat:@"Tiempo de espera agotado."];
             break;
         default:
             error = [[NSString alloc] initWithFormat:@"Error desconocido (%i)", [[requestInstance error] code]];
             break;
     }
+    
+    UIAlertView *alerta = [[UIAlertView alloc] initWithTitle:@"ERROR"
+                                                     message:error
+                                                    delegate:self
+                                           cancelButtonTitle:@"OK"
+                                           otherButtonTitles: nil];
+    
+    [alerta show];
+    
 }
 
 // Fin Functiones ASIHTTPRequest

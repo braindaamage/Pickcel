@@ -84,6 +84,11 @@
     
 }
 
+- (void)limpiarDatos {
+    [self.imagenObtenidaVista setImage:nil];
+    [self.botonEnviarVista setEnabled:NO];
+}
+
 - (void)publishTwitter {
     
     //NSLog(@"Publicando en Twitter");
@@ -306,11 +311,7 @@
     } else {
         NSLog(@"No se encontró Session");
         AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-        // The user has initiated a login, so call the openSession method
-        // and show the login UX if necessary.
-        if ([appDelegate openSessionWithAllowLoginUI:YES]) {
-            [self verificarPermisosFacebook];
-        }
+        [appDelegate openSessionWithAllowLoginUI:YES withView:self tipoVista:@"captura"];
     }
 }
 
@@ -395,6 +396,9 @@
         
         
         [self.navigationController pushViewController:descuento animated:YES];
+        
+        [self performSelector:@selector(limpiarDatos) withObject:nil afterDelay:1.0];
+        
     } else {
         UIAlertView *error = [[UIAlertView alloc] initWithTitle:@"ERROR"
                                                         message:@"Ocurrio un error al obtener el descuento, intentalo más tarde"

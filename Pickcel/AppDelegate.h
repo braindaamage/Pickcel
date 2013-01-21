@@ -17,7 +17,7 @@ extern NSString *const FBSessionStateChangedNotification;
 
 @property (strong, nonatomic) UIWindow *window;
 
-- (BOOL)openSessionWithAllowLoginUI:(BOOL)allowLoginUI;
+- (BOOL)openSessionWithAllowLoginUI:(BOOL)allowLoginUI withView:(UIViewController *) vista tipoVista:(NSString *) tipo;
 - (void) closeSession;
 
 @end

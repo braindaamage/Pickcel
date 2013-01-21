@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "LoginViewController.h"
 #import "TabBarViewController.h"
+#import "CapturaViewController.h"
 
 NSString *const FBSessionStateChangedNotification = @"cl.reframe.Pickcel:FBSessionStateChangedNotification";
 
@@ -109,10 +110,37 @@ NSString *const FBSessionStateChangedNotification = @"cl.reframe.Pickcel:FBSessi
 - (void)sessionStateChanged:(FBSession *)session
                       state:(FBSessionState) state
                       error:(NSError *)error
+                       view:(UIViewController *) vista
+                  tipoVista:(NSString *) tipo
 {
+    if (error) {
+        NSString *txtError = nil;
+        switch ([error code]) {
+            case 5:
+                txtError = [[NSString alloc] initWithFormat:@"Ocurrio un error al intentar obtener los permisos, reintentalo"];
+                break;
+            case 2:
+                txtError = [[NSString alloc] initWithFormat:@"La aplicación está bloqueada desde el Sistema. Revisa en Ajustes -> Facebook"];
+                break;
+            default:
+                txtError = [[NSString alloc] initWithFormat:@"%@", error.localizedDescription];
+                break;
+        }
+        
+        UIAlertView *alertView = [[UIAlertView alloc]
+                                  initWithTitle:@"Error"
+                                  message:txtError
+                                  delegate:nil
+                                  cancelButtonTitle:@"OK"
+                                  otherButtonTitles:nil];
+        [alertView show];
+        
+        
+    }
+    NSLog(@"%i --- %i", FBSessionStateOpen, state);
     switch (state) {
         case FBSessionStateOpen:
-            if (!error) {
+            if (error == nil) {
                 // We have a valid session
                 //NSLog(@"User session found");
                 if (self.login != nil) {
@@ -121,21 +149,27 @@ NSString *const FBSessionStateChangedNotification = @"cl.reframe.Pickcel:FBSessi
                                                                           id<FBGraphUser> user,
                                                                           NSError *error) {
                         if (!error) {
-                            [self.login.nombre setText:user.name];
-                            [self.login.email setText:[user objectForKey:@"email"]];
+                            if ([tipo isEqualToString:@"login"]) {
+                                [self.login.nombre setText:user.name];
+                                [self.login.email setText:[user objectForKey:@"email"]];
+                                
+                                NSDateFormatter *df = [[NSDateFormatter alloc] init];
+                                [df setDateFormat:@"MM/dd/yyyy"];
+                                NSDate *fecha = [[NSDate alloc] init];
+                                fecha = [df dateFromString:user.birthday];
+                                [df setDateFormat:@"dd/MM/yyyy"];
+                                
+                                
+                                [self.login.fechaNacimiento setText:[df stringFromDate:fecha]];
+                                
+                                if (![self.login.nombre isEqual:@""] || ![self.login.email isEqual:@""] || ![self.login.fechaNacimiento isEqual:@""]) {
+                                    [self.login registrar];
+                                }
+                            } else {
+                                CapturaViewController *captura = (CapturaViewController *) vista;
+                                [captura verificarPermisosFacebook];
+                            }
                             
-                            NSDateFormatter *df = [[NSDateFormatter alloc] init];
-                            [df setDateFormat:@"MM/dd/yyyy"];
-                            NSDate *fecha = [[NSDate alloc] init];
-                            fecha = [df dateFromString:user.birthday];
-                            [df setDateFormat:@"dd/MM/yyyy"];
-                            
-                            
-                            [self.login.fechaNacimiento setText:[df stringFromDate:fecha]];
-                        }
-                        
-                        if (![self.login.nombre isEqual:@""] || ![self.login.email isEqual:@""] || ![self.login.fechaNacimiento isEqual:@""]) {
-                            [self.login registrar];
                         }
                     }];
                 }
@@ -152,24 +186,12 @@ NSString *const FBSessionStateChangedNotification = @"cl.reframe.Pickcel:FBSessi
     [[NSNotificationCenter defaultCenter]
      postNotificationName:FBSessionStateChangedNotification
      object:session];
-    
-    if (error) {
-        UIAlertView *alertView = [[UIAlertView alloc]
-                                  initWithTitle:@"Error"
-                                  message:error.localizedDescription
-                                  delegate:nil
-                                  cancelButtonTitle:@"OK"
-                                  otherButtonTitles:nil];
-        [alertView show];
-        
-         NSLog(@"error login: %@", error);
-    }
 }
 
 /*
  * Opens a Facebook session and optionally shows the login UX.
  */
-- (BOOL)openSessionWithAllowLoginUI:(BOOL)allowLoginUI {
+- (BOOL)openSessionWithAllowLoginUI:(BOOL)allowLoginUI withView:(UIViewController *) vista tipoVista:(NSString *) tipo {
     NSArray *permissions = [[NSArray alloc] initWithObjects:
                             @"email",
                             @"user_about_me",
@@ -182,7 +204,9 @@ NSString *const FBSessionStateChangedNotification = @"cl.reframe.Pickcel:FBSessi
                                                              NSError *error) {
                                              [self sessionStateChanged:session
                                                                  state:state
-                                                                 error:error];
+                                                                 error:error
+                                                                  view:vista
+                                                             tipoVista:tipo];
                                          }];
 }
 

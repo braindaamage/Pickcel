@@ -35,7 +35,7 @@
 - (IBAction)btnFacebook:(id)sender;
 - (IBAction)btnTwitter:(id)sender;
 
-
+- (void) verificarPermisosFacebook;
 
 
 @end
