@@ -12,7 +12,7 @@
 #import "DLCImagePickerController.h"
 #import "AppDelegate.h"
 
-@interface CapturaViewController : UIViewController <DLCImagePickerDelegate>
+@interface CapturaViewController : UIViewController <DLCImagePickerDelegate, UIGestureRecognizerDelegate>
 @property (weak, nonatomic) NSMutableDictionary *cliente;
 
 @property (weak, nonatomic) IBOutlet UIImageView *imagenObtenidaVista;

@@ -49,11 +49,14 @@
     botonFacebook = NO;
     botonTwitter = NO;
     
-    errorTwitter = [[UIAlertView alloc] initWithTitle:@"ERROR"
-                                                message:@"No tienes cuentas de Twitter configuradas en el dispositivo"
-                                                delegate:self
-                                        cancelButtonTitle:@"OK"
-                                        otherButtonTitles:nil];
+    UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc]
+                                             initWithTarget:self action:@selector(iniciarCamara)];
+    [tapRecognizer setNumberOfTouchesRequired:1];
+    [tapRecognizer setDelegate:self];
+    
+    [imagenObtenidaVista setUserInteractionEnabled:YES];
+    [imagenObtenidaVista addGestureRecognizer:tapRecognizer];
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -85,8 +88,10 @@
 }
 
 - (void)limpiarDatos {
-    [self.imagenObtenidaVista setImage:nil];
     [self.botonEnviarVista setEnabled:NO];
+    
+    UIImage *botonCamara = [UIImage imageNamed:@"botoncamara.png"];
+    [self.imagenObtenidaVista setImage:botonCamara];
 }
 
 - (void)publishTwitter {

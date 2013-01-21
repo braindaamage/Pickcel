@@ -12,8 +12,6 @@
 		A72E1D9F16A8AB7C00CF2053 /* cancel.png in Resources */ = {isa = PBXBuildFile; fileRef = A72E1D9D16A8AB7C00CF2053 /* cancel.png */; };
 		A72E1DA016A8AB7C00CF2053 /* cancel@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A72E1D9E16A8AB7C00CF2053 /* cancel@2x.png */; };
 		A732CD80168CAAC000F45B64 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A732CD7F168CAAC000F45B64 /* AdSupport.framework */; };
-		A73EC21F16AD9895000FCB71 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A73EC21E16AD9895000FCB71 /* FacebookSDK.framework */; };
-		A73EC22116AD98A4000FCB71 /* FacebookSDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A73EC22016AD98A4000FCB71 /* FacebookSDKResources.bundle */; };
 		A741D85D1675388600CCA065 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A741D85C1675388600CCA065 /* UIKit.framework */; };
 		A741D85F1675388600CCA065 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A741D85E1675388600CCA065 /* Foundation.framework */; };
 		A741D8611675388600CCA065 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A741D8601675388600CCA065 /* CoreGraphics.framework */; };
@@ -43,6 +41,10 @@
 		A75D285216A89D310088FE91 /* fondotabcamara@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A75D285016A89D310088FE91 /* fondotabcamara@2x.png */; };
 		A76447D41680FB9B008116C0 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A76447D31680FB9B008116C0 /* Social.framework */; };
 		A76447D61680FBA1008116C0 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A76447D51680FBA1008116C0 /* Accounts.framework */; };
+		A769BBA216ADD4CC00E2C766 /* infobg.png in Resources */ = {isa = PBXBuildFile; fileRef = A769BBA116ADD4CC00E2C766 /* infobg.png */; };
+		A769BBA416ADDE6000E2C766 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A769BBA316ADDE6000E2C766 /* FacebookSDK.framework */; };
+		A769BBA616ADDE6900E2C766 /* FacebookSDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A769BBA516ADDE6900E2C766 /* FacebookSDKResources.bundle */; };
+		A769BBA816ADE92300E2C766 /* botoncamara.png in Resources */ = {isa = PBXBuildFile; fileRef = A769BBA716ADE92300E2C766 /* botoncamara.png */; };
 		A7752E0F167817DF000CD7C8 /* BlurOverlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = A7752DC0167817DE000CD7C8 /* BlurOverlayView.m */; };
 		A7752E10167817DF000CD7C8 /* DLCImagePickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7752DC2167817DE000CD7C8 /* DLCImagePickerController.m */; };
 		A7752E11167817DF000CD7C8 /* GrayscaleContrastFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = A7752DC4167817DE000CD7C8 /* GrayscaleContrastFilter.m */; };
@@ -175,8 +177,6 @@
 		A72E1D9D16A8AB7C00CF2053 /* cancel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cancel.png; sourceTree = "<group>"; };
 		A72E1D9E16A8AB7C00CF2053 /* cancel@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cancel@2x.png"; sourceTree = "<group>"; };
 		A732CD7F168CAAC000F45B64 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
-		A73EC21E16AD9895000FCB71 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../../../FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
-		A73EC22016AD98A4000FCB71 /* FacebookSDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = FacebookSDKResources.bundle; path = ../../../FacebookSDK/FacebookSDK.framework/Versions/A/Resources/FacebookSDKResources.bundle; sourceTree = "<group>"; };
 		A741D8581675388600CCA065 /* Pickcel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pickcel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A741D85C1675388600CCA065 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		A741D85E1675388600CCA065 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -216,6 +216,10 @@
 		A75D285016A89D310088FE91 /* fondotabcamara@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fondotabcamara@2x.png"; sourceTree = "<group>"; };
 		A76447D31680FB9B008116C0 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		A76447D51680FBA1008116C0 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
+		A769BBA116ADD4CC00E2C766 /* infobg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = infobg.png; sourceTree = "<group>"; };
+		A769BBA316ADDE6000E2C766 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../../../FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
+		A769BBA516ADDE6900E2C766 /* FacebookSDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = FacebookSDKResources.bundle; path = ../../../FacebookSDK/FacebookSDK.framework/Versions/A/Resources/FacebookSDKResources.bundle; sourceTree = "<group>"; };
+		A769BBA716ADE92300E2C766 /* botoncamara.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = botoncamara.png; sourceTree = "<group>"; };
 		A7752DBF167817DE000CD7C8 /* BlurOverlayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlurOverlayView.h; sourceTree = "<group>"; };
 		A7752DC0167817DE000CD7C8 /* BlurOverlayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlurOverlayView.m; sourceTree = "<group>"; };
 		A7752DC1167817DE000CD7C8 /* DLCImagePickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLCImagePickerController.h; sourceTree = "<group>"; };
@@ -359,7 +363,7 @@
 				A796F8B71677FB070075C0D0 /* libGPUImage.a in Frameworks */,
 				A741D85D1675388600CCA065 /* UIKit.framework in Frameworks */,
 				A741D85F1675388600CCA065 /* Foundation.framework in Frameworks */,
-				A73EC21F16AD9895000FCB71 /* FacebookSDK.framework in Frameworks */,
+				A769BBA416ADDE6000E2C766 /* FacebookSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -386,8 +390,8 @@
 		A741D85B1675388600CCA065 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				A73EC22016AD98A4000FCB71 /* FacebookSDKResources.bundle */,
-				A73EC21E16AD9895000FCB71 /* FacebookSDK.framework */,
+				A769BBA516ADDE6900E2C766 /* FacebookSDKResources.bundle */,
+				A769BBA316ADDE6000E2C766 /* FacebookSDK.framework */,
 				A732CD7F168CAAC000F45B64 /* AdSupport.framework */,
 				A76447D51680FBA1008116C0 /* Accounts.framework */,
 				A76447D31680FB9B008116C0 /* Social.framework */,
@@ -445,6 +449,8 @@
 		A741D885167544A600CCA065 /* Artwork */ = {
 			isa = PBXGroup;
 			children = (
+				A769BBA716ADE92300E2C766 /* botoncamara.png */,
+				A769BBA116ADD4CC00E2C766 /* infobg.png */,
 				A72E1D9D16A8AB7C00CF2053 /* cancel.png */,
 				A72E1D9E16A8AB7C00CF2053 /* cancel@2x.png */,
 				A72E1D9916A8A3CF00CF2053 /* topbar.png */,
@@ -869,7 +875,9 @@
 				A72E1D9C16A8A3CF00CF2053 /* topbar@2x.png in Resources */,
 				A72E1D9F16A8AB7C00CF2053 /* cancel.png in Resources */,
 				A72E1DA016A8AB7C00CF2053 /* cancel@2x.png in Resources */,
-				A73EC22116AD98A4000FCB71 /* FacebookSDKResources.bundle in Resources */,
+				A769BBA216ADD4CC00E2C766 /* infobg.png in Resources */,
+				A769BBA616ADDE6900E2C766 /* FacebookSDKResources.bundle in Resources */,
+				A769BBA816ADE92300E2C766 /* botoncamara.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -992,7 +1000,6 @@
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/../../FacebookSDK\"",
 					"\"$(SRCROOT)/../../../FacebookSDK\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1013,7 +1020,6 @@
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/../../FacebookSDK\"",
 					"\"$(SRCROOT)/../../../FacebookSDK\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
