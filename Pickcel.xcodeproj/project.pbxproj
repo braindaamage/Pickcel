@@ -12,6 +12,8 @@
 		A72E1D9F16A8AB7C00CF2053 /* cancel.png in Resources */ = {isa = PBXBuildFile; fileRef = A72E1D9D16A8AB7C00CF2053 /* cancel.png */; };
 		A72E1DA016A8AB7C00CF2053 /* cancel@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A72E1D9E16A8AB7C00CF2053 /* cancel@2x.png */; };
 		A732CD80168CAAC000F45B64 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A732CD7F168CAAC000F45B64 /* AdSupport.framework */; };
+		A73EC21F16AD9895000FCB71 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A73EC21E16AD9895000FCB71 /* FacebookSDK.framework */; };
+		A73EC22116AD98A4000FCB71 /* FacebookSDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A73EC22016AD98A4000FCB71 /* FacebookSDKResources.bundle */; };
 		A741D85D1675388600CCA065 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A741D85C1675388600CCA065 /* UIKit.framework */; };
 		A741D85F1675388600CCA065 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A741D85E1675388600CCA065 /* Foundation.framework */; };
 		A741D8611675388600CCA065 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A741D8601675388600CCA065 /* CoreGraphics.framework */; };
@@ -33,8 +35,6 @@
 		A75884A916766CC5007C0026 /* feeds.xml in Resources */ = {isa = PBXBuildFile; fileRef = A75884A816766CC5007C0026 /* feeds.xml */; };
 		A75884AC1676851E007C0026 /* ObtenerDescuentoNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A75884AB1676851D007C0026 /* ObtenerDescuentoNavigationViewController.m */; };
 		A75884AF16768741007C0026 /* CapturaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A75884AE16768741007C0026 /* CapturaViewController.m */; };
-		A75D283A16A8484F0088FE91 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A75D283916A8484F0088FE91 /* FacebookSDK.framework */; };
-		A75D283C16A848590088FE91 /* FacebookSDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A75D283B16A848590088FE91 /* FacebookSDKResources.bundle */; };
 		A75D284516A898760088FE91 /* info.png in Resources */ = {isa = PBXBuildFile; fileRef = A75D284316A898760088FE91 /* info.png */; };
 		A75D284616A898760088FE91 /* info@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A75D284416A898760088FE91 /* info@2x.png */; };
 		A75D284916A8993A0088FE91 /* camaratab.png in Resources */ = {isa = PBXBuildFile; fileRef = A75D284716A8993A0088FE91 /* camaratab.png */; };
@@ -175,6 +175,8 @@
 		A72E1D9D16A8AB7C00CF2053 /* cancel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cancel.png; sourceTree = "<group>"; };
 		A72E1D9E16A8AB7C00CF2053 /* cancel@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cancel@2x.png"; sourceTree = "<group>"; };
 		A732CD7F168CAAC000F45B64 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		A73EC21E16AD9895000FCB71 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../../../FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
+		A73EC22016AD98A4000FCB71 /* FacebookSDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = FacebookSDKResources.bundle; path = ../../../FacebookSDK/FacebookSDK.framework/Versions/A/Resources/FacebookSDKResources.bundle; sourceTree = "<group>"; };
 		A741D8581675388600CCA065 /* Pickcel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pickcel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A741D85C1675388600CCA065 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		A741D85E1675388600CCA065 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -206,8 +208,6 @@
 		A75884AB1676851D007C0026 /* ObtenerDescuentoNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObtenerDescuentoNavigationViewController.m; sourceTree = "<group>"; };
 		A75884AD16768741007C0026 /* CapturaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CapturaViewController.h; sourceTree = "<group>"; };
 		A75884AE16768741007C0026 /* CapturaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CapturaViewController.m; sourceTree = "<group>"; };
-		A75D283916A8484F0088FE91 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../../FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
-		A75D283B16A848590088FE91 /* FacebookSDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = FacebookSDKResources.bundle; path = ../../FacebookSDK/FacebookSDK.framework/Versions/A/Resources/FacebookSDKResources.bundle; sourceTree = "<group>"; };
 		A75D284316A898760088FE91 /* info.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = info.png; sourceTree = "<group>"; };
 		A75D284416A898760088FE91 /* info@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "info@2x.png"; sourceTree = "<group>"; };
 		A75D284716A8993A0088FE91 /* camaratab.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = camaratab.png; sourceTree = "<group>"; };
@@ -359,7 +359,7 @@
 				A796F8B71677FB070075C0D0 /* libGPUImage.a in Frameworks */,
 				A741D85D1675388600CCA065 /* UIKit.framework in Frameworks */,
 				A741D85F1675388600CCA065 /* Foundation.framework in Frameworks */,
-				A75D283A16A8484F0088FE91 /* FacebookSDK.framework in Frameworks */,
+				A73EC21F16AD9895000FCB71 /* FacebookSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -386,8 +386,8 @@
 		A741D85B1675388600CCA065 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				A75D283B16A848590088FE91 /* FacebookSDKResources.bundle */,
-				A75D283916A8484F0088FE91 /* FacebookSDK.framework */,
+				A73EC22016AD98A4000FCB71 /* FacebookSDKResources.bundle */,
+				A73EC21E16AD9895000FCB71 /* FacebookSDK.framework */,
 				A732CD7F168CAAC000F45B64 /* AdSupport.framework */,
 				A76447D51680FBA1008116C0 /* Accounts.framework */,
 				A76447D31680FB9B008116C0 /* Social.framework */,
@@ -859,7 +859,6 @@
 				A7BE25AA16A700FD005A0D7E /* facebookOn.png in Resources */,
 				A7BE25AB16A700FD005A0D7E /* twitterOff.png in Resources */,
 				A7BE25AC16A700FD005A0D7E /* twitterOn.png in Resources */,
-				A75D283C16A848590088FE91 /* FacebookSDKResources.bundle in Resources */,
 				A75D284516A898760088FE91 /* info.png in Resources */,
 				A75D284616A898760088FE91 /* info@2x.png in Resources */,
 				A75D284916A8993A0088FE91 /* camaratab.png in Resources */,
@@ -870,6 +869,7 @@
 				A72E1D9C16A8A3CF00CF2053 /* topbar@2x.png in Resources */,
 				A72E1D9F16A8AB7C00CF2053 /* cancel.png in Resources */,
 				A72E1DA016A8AB7C00CF2053 /* cancel@2x.png in Resources */,
+				A73EC22116AD98A4000FCB71 /* FacebookSDKResources.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

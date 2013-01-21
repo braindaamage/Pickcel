@@ -363,8 +363,24 @@
              NSLog(@"Error no se pudo acceder a las cuentas: %@", [error localizedDescription]);
              //completionHandler(NO);
              //[errorTwitter show];
+             NSString *mensaje = @"No tienes cuentas de Twitter configuradas en el Sistema";
+             [self performSelectorOnMainThread:@selector(errorEnHiloPrincipal:) withObject:mensaje waitUntilDone:YES];
          }
      }];
+}
+
+- (void)errorEnHiloPrincipal:(NSString *) mensaje {
+    [self performSelectorOnMainThread:@selector(muestraError:) withObject:mensaje waitUntilDone:YES];
+}
+
+- (void)muestraError:(NSString *) mensaje{
+    UIAlertView *error = [[UIAlertView alloc] initWithTitle:@"ERROR"
+                                                    message:mensaje
+                                                   delegate:self
+                                          cancelButtonTitle:@"OK"
+                                          otherButtonTitles: nil];
+    
+    [error show];
 }
 
 // Funciones ASIHTTPRequest
