@@ -35,12 +35,11 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)logoutFacebook:(id)sender {
-    
-    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-    // The user has initiated a login, so call the openSession method
-    // and show the login UX if necessary.
-    [appDelegate closeSession];
-    
+- (IBAction)btnReframe:(id)sender {
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString: @"http://www.reframe.cl"]];
+}
+
+- (IBAction)btnPickcel:(id)sender {
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString: @"http://www.pickcel.cl"]];
 }
 @end

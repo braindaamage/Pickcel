@@ -138,7 +138,7 @@
                                      filename:nil];
              
              // NB: Our status must be passed as part of the multipart form data
-             NSString *status = @"Estoy utilizando #Pickcel para obtener un descuento!";
+             NSString *status = @"Perfect! Encontré lo que quería y con @Pickcel tengo el mejor descuento #DescuentosPickcel";
              
              [requestTwitter addMultipartData:[status dataUsingEncoding:NSUTF8StringEncoding]
                                      withName:@"status"
@@ -181,7 +181,7 @@
     self.postParams =
     [[NSMutableDictionary alloc] initWithObjectsAndKeys:
      [UIImage imageWithData:imagenCapturada], @"source",
-     @"Estoy utilizando Pickcel para obtener un descuento!", @"message",
+     @"Perfect! Encontré lo que quería y con la aplicación Pickcel tengo el mejor descuento.", @"message",
      nil];
     
     [FBRequestConnection
@@ -271,16 +271,16 @@
     UIButton *boton = (UIButton *) sender;
     
     if (botonFacebook) {
-        UIImage *imagen = [UIImage imageNamed:@"facebookOn.png"];
+        UIImage *imagen = [UIImage imageNamed:@"redesfbon.png"];
         [boton setImage:imagen forState:UIControlStateNormal];
     } else {
-        UIImage *imagen = [UIImage imageNamed:@"facebookOff.png"];
+        UIImage *imagen = [UIImage imageNamed:@"redesfboff.png"];
         [boton setImage:imagen forState:UIControlStateNormal];
     }
 }
 
 - (void)facebookON {
-    UIImage *imagen = [UIImage imageNamed:@"facebookOn.png"];
+    UIImage *imagen = [UIImage imageNamed:@"redesfbon.png"];
     [self.vistaBtnFacebook setImage:imagen forState:UIControlStateNormal];
 }
 
@@ -323,7 +323,7 @@
 - (IBAction)btnTwitter:(id)sender {
     if (botonTwitter) {
         botonTwitter = NO;
-        UIImage *imagen = [UIImage imageNamed:@"twitterOff.png"];
+        UIImage *imagen = [UIImage imageNamed:@"redestwoff.png"];
         [self.vistaBotonTwitter setImage:imagen forState:UIControlStateNormal];
     } else {
         [self accesoTwitterWithCompletionHandler:^(BOOL access) {
@@ -336,7 +336,7 @@
 }
 
 - (void)cambiarImagenTwitter {
-    UIImage *imagen = [UIImage imageNamed:@"twitterOn.png"];
+    UIImage *imagen = [UIImage imageNamed:@"redestwon.png"];
     [self.vistaBotonTwitter setImage:imagen forState:UIControlStateNormal];
 }
 

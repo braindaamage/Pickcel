@@ -12,6 +12,7 @@
 @property (strong, nonatomic) IBOutlet UICollectionView *vistaColeccion;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *indicadorCarga;
 @property (weak, nonatomic) IBOutlet UIProgressView *progressBar;
+@property (weak, nonatomic) IBOutlet UIImageView *imgNoInternet;
 
 - (IBAction)celdaBotonPulsar:(id)sender;
 

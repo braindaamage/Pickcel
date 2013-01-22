@@ -43,6 +43,8 @@
 
 - (void) obtenerClientes {
     
+    [self.imgNoInternet setHidden:YES];
+    
     if (self.navigationItem.rightBarButtonItem != nil) {
         self.navigationItem.rightBarButtonItem = nil;
     }
@@ -83,6 +85,7 @@
 }
 
 - (void)parser:(NSXMLParser *)parser parseErrorOccurred:(NSError *)parseError {
+    [self.imgNoInternet setHidden:NO];
     UIBarButtonItem *nuevoBoton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(obtenerClientes)];
     [self.navigationItem performSelectorOnMainThread:@selector(setRightBarButtonItem:) withObject:nuevoBoton waitUntilDone:YES];
     [self.indicadorCarga performSelectorOnMainThread:@selector(stopAnimating) withObject:nil waitUntilDone:YES];

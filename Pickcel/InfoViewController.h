@@ -12,6 +12,8 @@
 #import "AppDelegate.h"
 
 @interface InfoViewController : UIViewController
-- (IBAction)logoutFacebook:(id)sender;
+
+- (IBAction)btnReframe:(id)sender;
+- (IBAction)btnPickcel:(id)sender;
 
 @end
