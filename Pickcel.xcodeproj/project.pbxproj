@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A7249E9816B06BFA009F0F04 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7249E9716B06BFA009F0F04 /* FacebookSDK.framework */; };
+		A7249E9A16B06C01009F0F04 /* FacebookSDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A7249E9916B06C01009F0F04 /* FacebookSDKResources.bundle */; };
+		A7249E9D16B070CD009F0F04 /* fondodesenfoque.png in Resources */ = {isa = PBXBuildFile; fileRef = A7249E9B16B070CD009F0F04 /* fondodesenfoque.png */; };
+		A7249E9E16B070CD009F0F04 /* fondodesenfoque@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A7249E9C16B070CD009F0F04 /* fondodesenfoque@2x.png */; };
 		A72E1D9B16A8A3CF00CF2053 /* topbar.png in Resources */ = {isa = PBXBuildFile; fileRef = A72E1D9916A8A3CF00CF2053 /* topbar.png */; };
 		A72E1D9C16A8A3CF00CF2053 /* topbar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A72E1D9A16A8A3CF00CF2053 /* topbar@2x.png */; };
 		A72E1D9F16A8AB7C00CF2053 /* cancel.png in Resources */ = {isa = PBXBuildFile; fileRef = A72E1D9D16A8AB7C00CF2053 /* cancel.png */; };
@@ -117,8 +121,6 @@
 		A7904E271677855400FE09E0 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A7904E261677855400FE09E0 /* Icon@2x.png */; };
 		A796F8B71677FB070075C0D0 /* libGPUImage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A796F8B21677FAEF0075C0D0 /* libGPUImage.a */; };
 		A797E4B91682674400664E9A /* InfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A797E4B81682674400664E9A /* InfoViewController.m */; };
-		A7A6B25716AED58B000DE5B3 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7A6B25616AED58B000DE5B3 /* FacebookSDK.framework */; };
-		A7A6B25916AED5A3000DE5B3 /* FacebookSDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A7A6B25816AED5A3000DE5B3 /* FacebookSDKResources.bundle */; };
 		A7A6B25F16AEE096000DE5B3 /* redesbg.png in Resources */ = {isa = PBXBuildFile; fileRef = A7A6B25A16AEE096000DE5B3 /* redesbg.png */; };
 		A7A6B26016AEE096000DE5B3 /* redesfboff.png in Resources */ = {isa = PBXBuildFile; fileRef = A7A6B25B16AEE096000DE5B3 /* redesfboff.png */; };
 		A7A6B26116AEE096000DE5B3 /* redesfbon.png in Resources */ = {isa = PBXBuildFile; fileRef = A7A6B25C16AEE096000DE5B3 /* redesfbon.png */; };
@@ -178,6 +180,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A7249E9716B06BFA009F0F04 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../../../FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
+		A7249E9916B06C01009F0F04 /* FacebookSDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = FacebookSDKResources.bundle; path = ../../../FacebookSDK/FacebookSDK.framework/Versions/A/Resources/FacebookSDKResources.bundle; sourceTree = "<group>"; };
+		A7249E9B16B070CD009F0F04 /* fondodesenfoque.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fondodesenfoque.png; sourceTree = "<group>"; };
+		A7249E9C16B070CD009F0F04 /* fondodesenfoque@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fondodesenfoque@2x.png"; sourceTree = "<group>"; };
 		A72E1D9916A8A3CF00CF2053 /* topbar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = topbar.png; sourceTree = "<group>"; };
 		A72E1D9A16A8A3CF00CF2053 /* topbar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "topbar@2x.png"; sourceTree = "<group>"; };
 		A72E1D9D16A8AB7C00CF2053 /* cancel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cancel.png; sourceTree = "<group>"; };
@@ -303,8 +309,6 @@
 		A796F8A81677FAEF0075C0D0 /* GPUImage.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = GPUImage.xcodeproj; path = Submodulos/GPUImage/framework/GPUImage.xcodeproj; sourceTree = "<group>"; };
 		A797E4B71682674400664E9A /* InfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoViewController.h; sourceTree = "<group>"; };
 		A797E4B81682674400664E9A /* InfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoViewController.m; sourceTree = "<group>"; };
-		A7A6B25616AED58B000DE5B3 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../../FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
-		A7A6B25816AED5A3000DE5B3 /* FacebookSDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = FacebookSDKResources.bundle; path = ../../FacebookSDK/FacebookSDK.framework/Versions/A/Resources/FacebookSDKResources.bundle; sourceTree = "<group>"; };
 		A7A6B25A16AEE096000DE5B3 /* redesbg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = redesbg.png; sourceTree = "<group>"; };
 		A7A6B25B16AEE096000DE5B3 /* redesfboff.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = redesfboff.png; sourceTree = "<group>"; };
 		A7A6B25C16AEE096000DE5B3 /* redesfbon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = redesfbon.png; sourceTree = "<group>"; };
@@ -375,7 +379,7 @@
 				A796F8B71677FB070075C0D0 /* libGPUImage.a in Frameworks */,
 				A741D85D1675388600CCA065 /* UIKit.framework in Frameworks */,
 				A741D85F1675388600CCA065 /* Foundation.framework in Frameworks */,
-				A7A6B25716AED58B000DE5B3 /* FacebookSDK.framework in Frameworks */,
+				A7249E9816B06BFA009F0F04 /* FacebookSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -402,8 +406,8 @@
 		A741D85B1675388600CCA065 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				A7A6B25816AED5A3000DE5B3 /* FacebookSDKResources.bundle */,
-				A7A6B25616AED58B000DE5B3 /* FacebookSDK.framework */,
+				A7249E9916B06C01009F0F04 /* FacebookSDKResources.bundle */,
+				A7249E9716B06BFA009F0F04 /* FacebookSDK.framework */,
 				A732CD7F168CAAC000F45B64 /* AdSupport.framework */,
 				A76447D51680FBA1008116C0 /* Accounts.framework */,
 				A76447D31680FB9B008116C0 /* Social.framework */,
@@ -461,6 +465,8 @@
 		A741D885167544A600CCA065 /* Artwork */ = {
 			isa = PBXGroup;
 			children = (
+				A7249E9B16B070CD009F0F04 /* fondodesenfoque.png */,
+				A7249E9C16B070CD009F0F04 /* fondodesenfoque@2x.png */,
 				A7A6B26416AEF170000DE5B3 /* nointernet.png */,
 				A7A6B25A16AEE096000DE5B3 /* redesbg.png */,
 				A7A6B25B16AEE096000DE5B3 /* redesfboff.png */,
@@ -895,13 +901,15 @@
 				A72E1DA016A8AB7C00CF2053 /* cancel@2x.png in Resources */,
 				A769BBA216ADD4CC00E2C766 /* infobg.png in Resources */,
 				A769BBA816ADE92300E2C766 /* botoncamara.png in Resources */,
-				A7A6B25916AED5A3000DE5B3 /* FacebookSDKResources.bundle in Resources */,
 				A7A6B25F16AEE096000DE5B3 /* redesbg.png in Resources */,
 				A7A6B26016AEE096000DE5B3 /* redesfboff.png in Resources */,
 				A7A6B26116AEE096000DE5B3 /* redesfbon.png in Resources */,
 				A7A6B26216AEE096000DE5B3 /* redestwoff.png in Resources */,
 				A7A6B26316AEE096000DE5B3 /* redestwon.png in Resources */,
 				A7A6B26516AEF170000DE5B3 /* nointernet.png in Resources */,
+				A7249E9A16B06C01009F0F04 /* FacebookSDKResources.bundle in Resources */,
+				A7249E9D16B070CD009F0F04 /* fondodesenfoque.png in Resources */,
+				A7249E9E16B070CD009F0F04 /* fondodesenfoque@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1024,7 +1032,7 @@
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/../../FacebookSDK\"",
+					"\"$(SRCROOT)/../../../FacebookSDK\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Pickcel/Pickcel-Prefix.pch";
@@ -1044,7 +1052,7 @@
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/../../FacebookSDK\"",
+					"\"$(SRCROOT)/../../../FacebookSDK\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Pickcel/Pickcel-Prefix.pch";
