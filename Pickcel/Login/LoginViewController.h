@@ -18,6 +18,7 @@
 @property (strong, nonatomic) IBOutlet UIToolbar *toolBar;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *btnAnterior;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *btnSiguiente;
+@property (strong, nonatomic) IBOutlet UIView *vistaLogin;
 
 - (IBAction)loginFacebook:(id)sender;
 - (IBAction)cerrarTeclado:(id)sender;

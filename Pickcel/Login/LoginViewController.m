@@ -61,6 +61,10 @@
 - (void)textFieldDidBeginEditing:(UITextField *)textField {
     [textField setInputAccessoryView:self.toolBar];
     
+    [UIView animateWithDuration:0.5 animations:^{
+        [self.vistaLogin setFrame: CGRectMake(self.vistaLogin.frame.origin.x, -200, self.vistaLogin.frame.size.width, self.vistaLogin.frame.size.height)];
+    }];
+    
     indice = textField.tag;
     
     if (textField.tag == 0) {
@@ -93,6 +97,11 @@
 }
 
 - (IBAction)cerrarTeclado:(id)sender {
+    
+    [UIView animateWithDuration:0.3 animations:^{
+        [self.vistaLogin setFrame: CGRectMake(self.vistaLogin.frame.origin.x, 0, self.vistaLogin.frame.size.width, self.vistaLogin.frame.size.height)];
+    }];
+    
     [self.nombre resignFirstResponder];
     [self.email resignFirstResponder];
     [self.fechaNacimiento resignFirstResponder];
